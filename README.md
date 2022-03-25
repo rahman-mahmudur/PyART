@@ -1,6 +1,8 @@
-# PyART-demo
+This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
 
-This is the instruction for the paper Python API Recommendation in Real-Time for ICSE AE track.
+Link to original project: https://github.com/PYART0/PyART-demo
+
+Readme instructions for API reccomendation from original project:
 
 
 ## Description
