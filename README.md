@@ -94,13 +94,6 @@ and then run
 
 ## Evaluation
 
-The evaluation results of PyART include two tasks, including Task1 (Dataflow evaluation) and Task2 (API recommendation evaluation). Task 1 is the evaluation experiment of data-flow analysis, which is reported in Table III for RQ1. Task 2 is the evaluation experiment of API Recommendation analysis, including intra-project recommendation (related to RQ2 and Table V ) and across-project recommendation (related to RQ3 and Table VI). We don’t include execution comparison with APIREC (Table IV) since the evaluation includes thousands of commit histories and needs several days.
-
-
-API recommendation evaluation.
-
-Task2 is stored in `PyART-demo/PyART` dictionary, and includes two kinds of evaluation: intra-project recommendation (Table V) and across-project recommendation (Table VI ). Each evaluation includes two process: training and testing.
-
 
 **To run training process of intra-project recommendation in Task2, use the following command:**
 
