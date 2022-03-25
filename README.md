@@ -96,57 +96,8 @@ and then run
 
 The evaluation results of PyART include two tasks, including Task1 (Dataflow evaluation) and Task2 (API recommendation evaluation). Task 1 is the evaluation experiment of data-flow analysis, which is reported in Table III for RQ1. Task 2 is the evaluation experiment of API Recommendation analysis, including intra-project recommendation (related to RQ2 and Table V ) and across-project recommendation (related to RQ3 and Table VI). We don’t include execution comparison with APIREC (Table IV) since the evaluation includes thousands of commit histories and needs several days.
 
-### Task1: Data flow analysis evaluation.
 
-Task 1 includes our proposed tool PyART and our baseline tool Pysonar2, and is realized in `DataFlowEvaluation` directory:
-
-`cd PyART-demo/DataFlowEvaluation/`
-
-To run the baseline Pysonar2 for Task1, use the following command:
-
-`java -Xms3550M -jar pystyping-3.0-milestone.jar data/PROJ results/PROJ -clearcache`
-
-In which `PROJ` denotes your project names, such as:
-
- `java -Xms3550M -jar pystyping-3.0-milestone.jar data/cornice results/cornice -clearcache`
-
-or you can directly modify and use `runpystyping.sh` file:
-
-`chmod a+x runpystyping.sh`
-
-`./runpystyping.sh`
-
-The input is stored in data/ and output is stored in results/. The dataflows are stored in results/PROJ/all-bindings.txt, results/PROJ/all-references.txt 
-and results/PROJ/all-constraints.txt.
- 
-The excerpts of the console output of Pysonar2 for the `cornice` project are as follows:
-
-![FIG1](https://github.com/PYART0/PyART-demo/blob/main/Figures/FIG1.png)
-
-
-To run PyART for Task 1, use the following command:
-
-`python3 main_dataflow.py > results/PROJ.txt`
-
-In which `PROJ` denotes your project names, such as:
-
-`python3 main_dataflow.py > results/cornice.txt`
-
-The input is stored in data/ and output is stored in results/PROJ.txt
-
-The excerpts of the console output of PyART for the `cornice` project are as follows:
-
-![FIG2](https://github.com/PYART0/PyART-demo/blob/main/Figures/FIG2.png)
-
-Since the ground truth of Task1 is obtained manually, the manual results is stored in ManaulCheckResults.xlsx.
-
-
-How to reproduce Task1 for other projects:
-
--Store your project in data/ and change `PROJ` to your project name. Change the `root_path` variable to your project name in` main_dataflow.py` in line 39.
-
-
-## Task2: API recommendation evaluation.
+API recommendation evaluation.
 
 Task2 is stored in `PyART-demo/PyART` dictionary, and includes two kinds of evaluation: intra-project recommendation (Table V) and across-project recommendation (Table VI ). Each evaluation includes two process: training and testing.
 
