@@ -1,7 +1,7 @@
 This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
 
 Current modifications:
-* Added ability to search Google for information about reccomended apis using Python Requests and BeautifulSoup Web Scraper.
+* Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
 * Improved readability in terminal.
 * Added Support Vector Machine and Logistic Regression Classifier to compare performance and accuracy.
 
