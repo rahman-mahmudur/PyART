@@ -1299,8 +1299,8 @@ def get_rec_point(file):
 		lenthk=len(cans)
 		exists_rec = []
 
-		if lenthk > 5:
-			lenthk = 5
+		if lenthk > 10:
+			lenthk = 10
 		for i in range(0,lenthk):
 			print(str(i+1)+' : ' + caller + '.' + cans[i][0] + '()')
 			exists_rec.append(cans[i][0])

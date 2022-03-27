@@ -2,7 +2,7 @@ ninja: Entering directory `.pytype'
 [1/1] check flask.tmp
 FAILED: /home/parallels/PyART-demo/PyART/.pytype/pyi/flask/tmp.pyi 
 /usr/bin/python3 -m pytype.single --imports_info /home/parallels/PyART-demo/PyART/.pytype/imports/flask.tmp.imports --module-name flask.tmp -V 3.8 -o /home/parallels/PyART-demo/PyART/.pytype/pyi/flask/tmp.pyi --analyze-annotated --nofail --quick /home/parallels/PyART-demo/PyART/testdata/flask/tmp.py
-File "/home/parallels/PyART-demo/PyART/testdata/flask/tmp.py", line 85, in generator: Any [reveal-type]
+File "/home/parallels/PyART-demo/PyART/testdata/flask/tmp.py", line 47, in get_debug_flag: str [reveal-type]
 
 For more details, see https://google.github.io/pytype/errors.html#reveal-type
 ninja: build stopped: subcommand failed.
