@@ -1,5 +1,12 @@
 This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
 
+Current modifications:
+* Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
+* Improved readability in terminal.
+* Added least recommended APIs for caller based on probability score.
+* Added Support Vector Machine and Logistic Regression Classifier to compare performance and accuracy.
+
+
 Link to original project: https://github.com/PYART0/PyART-demo
 
 Readme instructions for API reccomendation from original project:
@@ -94,7 +101,7 @@ and then run
 
 `cp -r tokenizers/ ../`
 
-## Evaluation
+## Evaluation of API Reccomendation (Task 2)
 
 
 **To run training process of intra-project recommendation in Task2, use the following command:**
