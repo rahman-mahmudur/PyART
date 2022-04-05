@@ -1,17 +1,28 @@
-This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
+## This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
 
-Current modifications:
+## Current modifications:
 * Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
 * Improved readability in terminal.
 * Added least recommended APIs for caller based on probability score.
-* Added Support Vector Machine and Logistic Regression Classifier to compare performance and accuracy.
+* Added Support Vector Machine, Naive Bayes, and Logistic Regression Classifier to compare performance and accuracy to Random Forest.
+* Commented out Google searching feature to speed up testing, uncomment to readd feature
+
+## Testing and ranking accuracy of different machine learning algorithms on accuracy of intra project reccomendation using average Top K scores:
+
+More information on Top K scores and MRR calculation in paper: https://arxiv.org/pdf/2102.04706.pdf
+
+## Testing method
+* Testing only covers intra project reccomendations (test files starting with a)
+* Created separate folder for each project to tested for example flask_test and bs4_test
+* Added files to generate machine learning models and generate test results for each type of algorithm, for example generateclf.pg, generatesvm.py, aget_test_result.py, aget_test_result.py, aget_test_result_svm.py
+* K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score
+
+## Test Results:
+*
 
 
+##Readme instructions for API reccomendation from original project:
 Link to original project: https://github.com/PYART0/PyART-demo
-
-Readme instructions for API reccomendation from original project:
-
-
 ## Description
 
 PyART is a real-time API recommendation tool for Python, which includes two main functions:
