@@ -1326,7 +1326,7 @@ Nonenum=Anynum=OKnum=0
 all_defs=[]
 all_recs=''
 
-CURRENT_PROJ='flask'
+CURRENT_PROJ='fl'
 filePath='testdata/'
 #projs=os.listdir(filePath)
 #print(projs)

@@ -1433,7 +1433,7 @@ all_defs=[]
 all_recs=''
 #alltimes=''
 
-CURRENT_PROJ='flask'
+CURRENT_PROJ='httpbin'
 filePath='testdata/'
 
 with open('test.csv','w+') as f:

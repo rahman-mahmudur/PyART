@@ -1683,7 +1683,7 @@ all_defs=[]
 all_recs=''
 #alltimes=''
 
-CURRENT_PROJ='flask'
+CURRENT_PROJ='beautifulsoup'
 filePath='testdata/'
 
 with open('test.csv','w+') as f:
