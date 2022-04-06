@@ -3,7 +3,6 @@ from docopt import docopt
 
 
 def HTMLColorToRGB(colorstring):
-    colorstring = colorstring.strip()
     if colorstring[0] == '#':
         colorstring = colorstring[1:]
     if len(colorstring) != 6:
@@ -59,7 +58,6 @@ def generate_ANSI_to_set_fg_bg_colors(cur_fg_color, cur_bg_color, new_fg_color,
 
     if new_bg_color != cur_bg_color:
         if new_bg_color is None:
-            color_array.append('49')        # reset to default
         else:
             color_array += getANSIbgarray_for_ANSIcolor(new_bg_color)
     if new_fg_color != cur_fg_color:
@@ -166,7 +164,6 @@ def generate_grayscale_for_image(pixels, width, height, bgcolor):
 
 def load_and_resize_image(imgname, antialias, maxLen):
     from PIL import Image
-    img = Image.open(imgname)
     if img.mode != 'RGBA':
         img = img.convert('RGBA')
     if maxLen is not None:

@@ -1,59 +1,27 @@
 import time
-import socket
-import select
-import logging
 import umsgpack
-import threading
-
-import amqp
-from six.moves.urllib.parse import unquote
-try:
-    from urllib import parse as urlparse
-except ImportError:
-    import urlparse
+from kombu import Connection, enable_insecure_serializers
+from kombu.serialization import register
+from kombu.exceptions import ChannelError
 from six.moves import queue as BaseQueue
 
 
-def catch_error(func):
-    import amqp
-    try:
-        import pika.exceptions
-        connect_exceptions = (
-            pika.exceptions.ConnectionClosed,
-            pika.exceptions.AMQPConnectionError,
-        )
-    except ImportError:
-        connect_exceptions = ()
-
-    connect_exceptions += (
-        select.error,
-        socket.error,
-        amqp.ConnectionError
-    )
-
-    def wrap(self, *args, **kwargs):
-        try:
-            return func(self, *args, **kwargs)
-        except connect_exceptions as e:
-            logging.error('RabbitMQ error: %r, reconnect.', e)
-            self.reconnect()
-            return func(self, *args, **kwargs)
-    return wrap
+register('umsgpack', umsgpack.packb, umsgpack.unpackb, 'application/x-msgpack')
+enable_insecure_serializers(['umsgpack'])
 
 
-class PikaQueue(object):
+class KombuQueue(object):
 
     Empty = BaseQueue.Empty
     Full = BaseQueue.Full
     max_timeout = 0.3
 
-    def __init__(self, name, amqp_url='amqp://guest:guest@localhost:5672/%2F',
-                 maxsize=0, lazy_limit=True):
+    def __init__(self, name, url="amqp://", maxsize=0, lazy_limit=True):
         self.name = name
-        self.amqp_url = amqp_url
-        self.maxsize = maxsize
-        self.lock = threading.RLock()
+        self.conn = Connection(url)
+        self.queue = self.conn.SimpleQueue(self.name, no_ack=True, serializer='umsgpack')
 
+        self.maxsize = maxsize
         self.lazy_limit = lazy_limit
         if self.lazy_limit and self.maxsize:
             self.qsize_diff_limit = int(self.maxsize * 0.1)
@@ -61,25 +29,11 @@ class PikaQueue(object):
             self.qsize_diff_limit = 0
         self.qsize_diff = 0
 
-        self.reconnect()
-
-    def reconnect(self):
-        import pika
-        import pika.exceptions
-
-        self.connection = pika.BlockingConnection(pika.URLParameters(self.amqp_url))
-        self.channel = self.connection.channel()
-        try:
-            self.channel.queue_declare(self.name)
-        except pika.exceptions.ChannelClosed:
-            self.connection = pika.BlockingConnection(pika.URLParameters(self.amqp_url))
-            self.channel = self.connection.channel()
-
-    @catch_error
     def qsize(self):
-        with self.lock:
-            ret = self.channel.queue_declare(self.name, passive=True)
-        return ret.method.message_count
+        try:
+            return self.queue.qsize()
+        except ChannelError:
+            return 0
 
     def empty(self):
         if self.qsize() == 0:
@@ -93,10 +47,9 @@ class PikaQueue(object):
         else:
             return False
 
-    @catch_error
     def put(self, obj, block=True, timeout=None):
         if not block:
-            return self.put_nowait()
+            return self.put_nowait(obj)
 
         start_time = time.time()
         while True:
@@ -112,7 +65,6 @@ class PikaQueue(object):
                 else:
                     time.sleep(self.max_timeout)
 
-    @catch_error
     def put_nowait(self, obj):
         if self.lazy_limit and self.qsize_diff < self.qsize_diff_limit:
             pass
@@ -120,95 +72,24 @@ class PikaQueue(object):
             raise BaseQueue.Full
         else:
             self.qsize_diff = 0
-        with self.lock:
-            self.qsize_diff += 1
-            return self.channel.basic_publish("", self.name, umsgpack.packb(obj))
+        return self.queue.put(obj)
 
-    @catch_error
-    def get(self, block=True, timeout=None, ack=False):
-        if not block:
-            return self.get_nowait()
-
-        start_time = time.time()
-        while True:
-            try:
-                return self.get_nowait(ack)
-            except BaseQueue.Empty:
-                if timeout:
-                    lasted = time.time() - start_time
-                    if timeout > lasted:
-                        time.sleep(min(self.max_timeout, timeout - lasted))
-                    else:
-                        raise
-                else:
-                    time.sleep(self.max_timeout)
-
-    @catch_error
-    def get_nowait(self, ack=False):
-        with self.lock:
-            method_frame, header_frame, body = self.channel.basic_get(self.name, not ack)
-            if method_frame is None:
-                raise BaseQueue.Empty
-            if ack:
-                self.channel.basic_ack(method_frame.delivery_tag)
-        return umsgpack.unpackb(body)
-
-    @catch_error
-    def delete(self):
-        with self.lock:
-            return self.channel.queue_delete(queue=self.name)
-
-
-class AmqpQueue(PikaQueue):
-    Empty = BaseQueue.Empty
-    Full = BaseQueue.Full
-    max_timeout = 0.3
-
-    def __init__(self, name, amqp_url='amqp://guest:guest@localhost:5672/%2F',
-                 maxsize=0, lazy_limit=True):
-        self.name = name
-        self.amqp_url = amqp_url
-        self.maxsize = maxsize
-        self.lock = threading.RLock()
-
-        self.lazy_limit = lazy_limit
-        if self.lazy_limit and self.maxsize:
-            self.qsize_diff_limit = int(self.maxsize * 0.1)
-        else:
-            self.qsize_diff_limit = 0
-        self.qsize_diff = 0
-
-        self.reconnect()
-
-    def reconnect(self):
-        parsed = urlparse.urlparse(self.amqp_url)
-        port = parsed.port or 5672
-        self.connection = amqp.Connection(host="%s:%s" % (parsed.hostname, port),
-                                          userid=parsed.username or 'guest',
-                                          password=parsed.password or 'guest',
-                                          virtual_host=unquote(
-                                              parsed.path.lstrip('/') or '%2F')).connect()
-        self.channel = self.connection.channel()
+    def get(self, block=True, timeout=None):
         try:
-            self.channel.queue_declare(self.name)
-        except amqp.exceptions.PreconditionFailed:
-            pass
+            ret = self.queue.get(block, timeout)
+            return ret.payload
+        except self.queue.Empty:
+            raise BaseQueue.Empty
 
-    @catch_error
-    def qsize(self):
-        with self.lock:
-            name, message_count, consumer_count = self.channel.queue_declare(
-                self.name, passive=True)
-        return message_count
+    def get_nowait(self):
+        try:
+            ret = self.queue.get_nowait()
+            return ret.payload
+        except self.queue.Empty:
+            raise BaseQueue.Empty
 
-    @catch_error
-    def put_nowait(self, obj):
-        if self.lazy_limit and self.qsize_diff < self.qsize_diff_limit:
-            pass
-        elif self.full():
-            raise BaseQueue.Full
-        else:
-            self.qsize_diff = 0
-        with self.lock:
-            self.qsize_diff += 1
-            reveal_type(amqp)
+    def delete(self):
+        self.queue.queue.delete()
+
+    def __del__(self):
+        reveal_type(self.queue)

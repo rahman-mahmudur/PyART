@@ -1284,7 +1284,7 @@ def get_rec_point(file):
 		#print(apis)
 		#print(len(apis))
 		#print(test_data)
-		clf=joblib.load('traincsv/'+CURRENT_PROJ+'1.pkl')
+		clf=joblib.load('traincsv/'+CURRENT_PROJ+'.pkl')
 		result=clf.predict_proba(test_data)
 
 		candidates={}

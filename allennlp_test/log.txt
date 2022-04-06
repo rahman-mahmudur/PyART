@@ -1,12 +1,11 @@
 ninja: Entering directory `.pytype'
-[1/1] check flask.tmp
-FAILED: /home/parallels/PyART-demo/PyART/flask_pyart_test/.pytype/pyi/flask/tmp.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/parallels/PyART-demo/PyART/flask_pyart_test/.pytype/imports/flask.tmp.imports --module-name flask.tmp -V 3.8 -o /home/parallels/PyART-demo/PyART/flask_pyart_test/.pytype/pyi/flask/tmp.pyi --analyze-annotated --nofail --quick /home/parallels/PyART-demo/PyART/flask_pyart_test/testdata/flask/tmp.py
-File "/home/parallels/PyART-demo/PyART/flask_pyart_test/testdata/flask/tmp.py", line 44, in _load_form_data: No attribute '_load_form_data' on Type[werkzeug.wrappers.Request] [attribute-error]
-File "/home/parallels/PyART-demo/PyART/flask_pyart_test/testdata/flask/tmp.py", line 62, in _get_data_for_json: Response [reveal-type]
+ninja: build stopped: interrupted by user.
+home/parallels/PyART-demo/PyART/allennlp_test/.pytype/pyi/allennlp/commands/tmp.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/imports/allennlp.commands.tmp.imports --module-name allennlp.commands.tmp -V 3.8 -o /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/pyi/allennlp/commands/tmp.pyi --analyze-annotated --nofail --quick /home/parallels/PyART-demo/PyART/allennlp_test/testdata/allennlp/commands/tmp.py
+File "/home/parallels/PyART-demo/PyART/allennlp_test/testdata/allennlp/commands/tmp.py", line 15, in <module>: Type[allennlp.commands.subcommand.Subcommand] [reveal-type]
 
-For more details, see https://google.github.io/pytype/errors.html
+For more details, see https://google.github.io/pytype/errors.html#reveal-type
 ninja: build stopped: subcommand failed.
 Computing dependencies
-Analyzing 1 sources with 18 local dependencies
+Analyzing 1 sources with 41 local dependencies
 Leaving directory '.pytype'

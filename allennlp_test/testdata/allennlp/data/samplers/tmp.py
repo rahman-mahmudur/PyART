@@ -1,49 +1,106 @@
-from typing import List, Iterable
+import logging
+from typing import List, Iterable, Tuple
+import random
+import math
+
 from torch.utils import data
 
-from allennlp.common.registrable import Registrable
+from allennlp.common.checks import ConfigurationError
+from allennlp.common.util import lazy_groups_of
+from allennlp.data.instance import Instance
+from allennlp.data.samplers import BatchSampler
+
+logger = logging.getLogger(__name__)
 
 
-
-class Sampler(Registrable):
-
-    def __iter__(self) -> Iterable[int]:
-
-        raise NotImplementedError
+def add_noise_to_value(value: int, noise_param: float):
+    noise_value = value * noise_param
+    noise = random.uniform(-noise_value, noise_value)
+    return value + noise
 
 
-class BatchSampler(Registrable):
-
-    def __iter__(self) -> Iterable[List[int]]:
-
-        raise NotImplementedError
-
-
-class SequentialSampler(data.SequentialSampler, Sampler):
-
-    def __init__(self, data_source: data.Dataset):
-        super().__init__(data_source)
-
-
-@Sampler.register("random")
-class RandomSampler(data.RandomSampler, Sampler):
+@BatchSampler.register("bucket")
+class BucketBatchSampler(BatchSampler):
 
     def __init__(
-        self, data_source: data.Dataset, replacement: bool = False, num_samples: int = None
+        self,
+        data_source: data.Dataset,
+        batch_size: int,
+        sorting_keys: List[str] = None,
+        padding_noise: float = 0.1,
+        drop_last: bool = False,
     ):
-        super().__init__(data_source, replacement, num_samples)
 
+        self.vocab = data_source.vocab
+        self.sorting_keys = sorting_keys
+        self.padding_noise = padding_noise
+        self.batch_size = batch_size
+        self.data_source = data_source
+        self.drop_last = drop_last
 
-@Sampler.register("subset_random")
-class SubsetRandomSampler(data.SubsetRandomSampler, Sampler):
+    def _argsort_by_padding(
+        self, instances: Iterable[Instance]
+    ) -> Tuple[List[int], List[List[int]]]:
+        if not self.sorting_keys:
+            logger.info("No sorting keys given; trying to guess a good one")
+            self._guess_sorting_keys(instances)
+            logger.info(f"Using {self.sorting_keys} as the sorting keys")
+        instances_with_lengths = []
+        for instance in instances:
+            lengths = []
+            noisy_lengths = []
+            for field_name in self.sorting_keys:
+                if field_name not in instance.fields:
+                    raise ConfigurationError(
+                        f'Sorting key "{field_name}" is not a field in instance. '
+                        f"Available fields/keys are {list(instance.fields.keys())}."
+                    )
+                lengths.append(len(instance.fields[field_name]))
 
-    def __init__(self, indices: List[int]):
-        super().__init__(indices)
+                noisy_lengths.append(add_noise_to_value(lengths[-1], self.padding_noise))
+            instances_with_lengths.append((noisy_lengths, lengths, instance))
+        with_indices = [(x, i) for i, x in enumerate(instances_with_lengths)]
+        with_indices.sort(key=lambda x: x[0][0])
+        return (
+            [instance_with_index[-1] for instance_with_index in with_indices],
+            [instance_with_index[0][1] for instance_with_index in with_indices],
+        )
 
+    def __iter__(self) -> Iterable[List[int]]:
+        indices, _ = self._argsort_by_padding(self.data_source)
+        batches = []
+        for group in lazy_groups_of(indices, self.batch_size):
+            batch_indices = list(group)
+            if self.drop_last and len(batch_indices) < self.batch_size:
+                continue
+            batches.append(batch_indices)
+        random.shuffle(batches)
+        for batch in batches:
+            yield batch
 
-@Sampler.register("weighted_random")
-class WeightedRandomSampler(data.WeightedRandomSampler, Sampler):
+    def _guess_sorting_keys(self, instances: Iterable[Instance], num_instances: int = 10) -> None:
+        max_length = 0.0
+        longest_field: str = None
+        for i, instance in enumerate(instances):
+            instance.index_fields(self.vocab)
+            for field_name, field in instance.fields.items():
+                length = len(field)
+                if length > max_length:
+                    max_length = length
+                    longest_field = field_name
+            if i > num_instances:
+                break
 
-    def __init__(self, weights: List[float], num_samples: int, replacement: bool = True):
-        super().__init__(weights, num_samples, replacement)
-reveal_type(BatchSampler)
+        if not longest_field:
+            raise AssertionError(
+                "Found no field that needed padding; we are surprised you got this error, please "
+                "open an issue on github"
+            )
+        self.sorting_keys = [longest_field]
+
+    def __len__(self):
+        batch_count_float = len(self.data_source) / self.batch_size
+        if self.drop_last:
+            return math.floor(batch_count_float)
+        else:
+            reveal_type(math)

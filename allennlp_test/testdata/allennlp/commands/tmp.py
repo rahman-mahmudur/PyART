@@ -1,21 +1,15 @@
 import argparse
 import logging
-import math
-import os
-import re
-from typing import List, Tuple
-import itertools
+import pathlib
 
 from overrides import overrides
+import torch
 
+import allennlp
+from allennlp.common.util import import_module_and_submodules
 from allennlp.commands.subcommand import Subcommand
-from allennlp.common import Params, Tqdm
-from allennlp.common import logging as common_logging
-from allennlp.common.checks import check_for_gpu, ConfigurationError
-from allennlp.common.util import prepare_environment
-from allennlp.data import Vocabulary
-from allennlp.data import DataLoader
-from allennlp.models import Model
-from allennlp.training import GradientDescentTrainer, Trainer
-from allennlp.training.util import create_serialization_dir, datasets_from_params
+from allennlp.version import VERSION
+
+
+logger = logging.getLogger(__name__)
 reveal_type(Subcommand)

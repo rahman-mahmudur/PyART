@@ -1,11 +1,10 @@
 from __future__ import unicode_literals
 
-from ..models import BaseComment
-from ..users import User
+from ..models import GitHubCore
 
 
-class GistComment(BaseComment):
+class GistFile(GitHubCore):
 
 
-    def _update_attributes(self, comment):
-        reveal_type(comment)
+    def _update_attributes(self, attributes):
+        reveal_type(attributes)

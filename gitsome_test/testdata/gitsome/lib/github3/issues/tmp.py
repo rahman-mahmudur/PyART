@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 
+from json import dumps
+from ..decorators import requires_auth
 from ..models import GitHubCore
-from ..users import User
 
 
-class IssueEvent(GitHubCore):
-    def _update_attributes(self, event):
-        reveal_type(event)
+class Label(GitHubCore):
+    def _update_attributes(self, label):
+        reveal_type(label)

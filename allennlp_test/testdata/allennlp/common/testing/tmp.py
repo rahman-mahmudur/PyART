@@ -25,10 +25,8 @@ class ModelTestCase(AllenNlpTestCase):
         if "vocabulary" in params:
             vocab_params = params["vocabulary"]
         else:
-            vocab = Vocabulary.from_instances(instances)
         self.vocab = vocab
         self.instances = instances
-        self.instances.index_with(vocab)
 
         self.dataset = Batch(list(self.instances))
 

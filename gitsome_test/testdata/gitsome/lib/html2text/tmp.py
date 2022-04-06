@@ -56,7 +56,6 @@ def name2cp(k):
         return htmlentitydefs.name2codepoint[k]
     else:
         k = htmlentitydefs.entitydefs[k]
-        if k.startswith("&#") and k.endswith(";"): return int(k[2:-1]) # not in latin-1
         return ord(codecs.latin_1_decode(k)[0])
 
 unifiable = {'rsquo':"'", 'lsquo':"'", 'rdquo':'"', 'ldquo':'"',
@@ -71,7 +70,6 @@ unifiable = {'rsquo':"'", 'lsquo':"'", 'rdquo':'"', 'ldquo':'"',
 
 unifiable_n = {}
 
-for k in unifiable.keys():
     unifiable_n[name2cp(k)] = unifiable[k]
 
 
@@ -93,7 +91,6 @@ def dumb_property_dict(style):
 
 def dumb_css_parser(data):
     data += ';'
-    importIndex = data.find('@import')
     while importIndex != -1:
         data = data[0:importIndex] + data[data.find(';', importIndex) + 1:]
         importIndex = data.find('@import')
@@ -107,11 +104,9 @@ def dumb_css_parser(data):
     return elements
 
 def element_style(attrs, style_def, parent_style):
-    style = parent_style.copy()
     if 'class' in attrs:
         for css_class in attrs['class'].split():
             css_style = style_def['.' + css_class]
-            style.update(css_style)
     if 'style' in attrs:
         immediate_style = dumb_property_dict(attrs['style'])
         style.update(immediate_style)
@@ -132,7 +127,6 @@ def google_has_height(style):
 def google_text_emphasis(style):
     emphasis = []
     if 'text-decoration' in style:
-        emphasis.append(style['text-decoration'])
     if 'font-style' in style:
         emphasis.append(style['font-style'])
     if 'font-weight' in style:
@@ -195,7 +189,6 @@ class HTML2Text(HTMLParser.HTMLParser):
         self.a = []
         self.astack = []
         self.maybe_automatic_link = None
-        self.absolute_url_matcher = re.compile(r'^[a-zA-Z+]+://')
         self.acount = 0
         self.list = []
         self.blockquote = 0
@@ -222,30 +215,24 @@ class HTML2Text(HTMLParser.HTMLParser):
 
 
     def feed(self, data):
-        data = data.replace("</' + 'script>", "</ignore>")
         HTMLParser.HTMLParser.feed(self, data)
 
     def handle(self, data):
-        self.feed(data)
         self.feed("")
         return self.optwrap(self.close())
 
     def outtextf(self, s):
-        self.outtextlist.append(s)
         if s: self.lastWasNL = s[-1] == '\n'
 
     def close(self):
-        HTMLParser.HTMLParser.close(self)
 
         self.pbr()
         self.o('', 0, 'end')
 
-        self.outtext = self.outtext.join(self.outtextlist)
         if self.unicode_snob:
             nbsp = unichr(name2cp('nbsp'))
         else:
             nbsp = u' '
-        self.outtext = self.outtext.replace(u'&nbsp_place_holder;', nbsp)
 
         return self.outtext
 
@@ -312,7 +299,6 @@ class HTML2Text(HTMLParser.HTMLParser):
             if bold or italic or fixed:
                 self.emphasis -= 1
                 self.space = 0
-                self.outtext = self.outtext.rstrip()
             if fixed:
                 if self.drop_white_space:
                     self.drop_last(1)
@@ -349,9 +335,7 @@ class HTML2Text(HTMLParser.HTMLParser):
                 if self.tag_stack:
                   parent_style = self.tag_stack[-1][2]
                 tag_style = element_style(attrs, self.style_def, parent_style)
-                self.tag_stack.append((tag, attrs, tag_style))
             else:
-                dummy, attrs, tag_style = self.tag_stack.pop()
                 if self.tag_stack:
                     parent_style = self.tag_stack[-1][2]
 
@@ -427,13 +411,11 @@ class HTML2Text(HTMLParser.HTMLParser):
         if tag == "a" and not self.ignore_links:
             if start:
                 if has_key(attrs, 'href') and not (self.skip_internal_links and attrs['href'].startswith('#')):
-                    self.astack.append(attrs)
                     self.maybe_automatic_link = attrs['href']
                 else:
                     self.astack.append(None)
             else:
                 if self.astack:
-                    a = self.astack.pop()
                     if self.maybe_automatic_link:
                         self.maybe_automatic_link = None
                     elif a:
@@ -447,7 +429,6 @@ class HTML2Text(HTMLParser.HTMLParser):
                                 self.acount += 1
                                 a['count'] = self.acount
                                 a['outcount'] = self.outcount
-                                self.a.append(a)
                             self.o("][" + str(a['count']) + "]")
 
         if tag == "img" and start and not self.ignore_images:
@@ -483,9 +464,7 @@ class HTML2Text(HTMLParser.HTMLParser):
                 else:
                     list_style = tag
                 numbering_start = list_numbering_start(attrs)
-                self.list.append({'name':list_style, 'num':numbering_start})
             else:
-                if self.list: self.list.pop()
             self.lastWasList = True
         else:
             self.lastWasList = False
@@ -534,21 +513,18 @@ class HTML2Text(HTMLParser.HTMLParser):
 
         if not self.quiet:
             if self.google_doc:
-                lstripped_data = data.lstrip()
                 if self.drop_white_space and not (self.pre or self.code):
                     data = lstripped_data
                 if lstripped_data != '':
                     self.drop_white_space = 0
 
             if puredata and not self.pre:
-                data = re.sub('\s+', ' ', data)
                 if data and data[0] == ' ':
                     self.space = 1
                     data = data[1:]
             if not data and not force: return
 
             if self.startpre:
-                if not data.startswith("\n"):  # <pre>stuff...
                     data = "\n" + data
 
             bq = (">" * self.blockquote)
@@ -595,14 +571,12 @@ class HTML2Text(HTMLParser.HTMLParser):
                         if has_key(link, 'title'): self.out(" ("+link['title']+")")
                         self.out("\n")
                     else:
-                        newa.append(link)
 
                 if self.a != newa: self.out("\n") # Don't need an extra line when nothing was done.
 
                 self.a = newa
 
             if self.abbr_list and force == "end":
-                for abbr, definition in self.abbr_list.items():
                     self.out("  *[" + abbr + "]: " + definition + "\n")
 
             self.p_p = 0
@@ -613,7 +587,6 @@ class HTML2Text(HTMLParser.HTMLParser):
         if r'\/script>' in data: self.quiet -= 1
 
         if self.style:
-            self.style_def.update(dumb_css_parser(data))
 
         if not self.maybe_automatic_link is None:
             href = self.maybe_automatic_link
@@ -636,7 +609,6 @@ class HTML2Text(HTMLParser.HTMLParser):
         else:
             c = int(name)
 
-        if not self.unicode_snob and c in unifiable_n.keys():
             return unifiable_n[c]
         else:
             try:
@@ -659,12 +631,9 @@ class HTML2Text(HTMLParser.HTMLParser):
     def replaceEntities(self, s):
         s = s.group(1)
         if s[0] == "#":
-            return self.charref(s[1:])
-        else: return self.entityref(s)
 
     r_unescape = re.compile(r"&(#?[xX]?(?:[0-9a-fA-F]+|\w{1,8}));")
     def unescape(self, s):
-        return self.r_unescape.sub(self.replaceEntities, s)
 
     def google_nest_count(self, style):
         nest_count = 0
@@ -684,7 +653,6 @@ class HTML2Text(HTMLParser.HTMLParser):
             if len(para) > 0:
                 if not skipwrap(para):
                     result += "\n".join(wrap(para, self.body_width))
-                    if para.endswith('  '):
                         result += "  \n"
                         newlines = 1
                     else:
@@ -710,17 +678,14 @@ slash_chars = r'\`*_{}[]()#+-.!'
 def skipwrap(para):
     if para[0:4] == '    ' or para[0] == '\t':
         return True
-    stripped = para.lstrip()
     if stripped[0:2] == "--" and len(stripped) > 2 and stripped[2] != "-":
         return False
     if stripped[0:1] == '-' or stripped[0:1] == '*':
         return True
-    if ordered_list_matcher.match(stripped) or unordered_list_matcher.match(stripped):
         return True
     return False
 
 def wrapwrite(text):
-    text = text.encode('utf-8')
     try: #Python3
         sys.stdout.buffer.write(text)
     except AttributeError:
@@ -733,18 +698,11 @@ def html2text(html, baseurl=''):
 def unescape(s, unicode_snob=False):
     h = HTML2Text()
     h.unicode_snob = unicode_snob
-    return h.unescape(s)
 
 def escape_md(text):
-    return md_chars_matcher.sub(r"\\\1", text)
 
 def escape_md_section(text, snob=False):
-    text = md_backslash_matcher.sub(r"\\\1", text)
     if snob:
-        text = md_chars_matcher_all.sub(r"\\\1", text)
-    text = md_dot_matcher.sub(r"\1\\\2", text)
-    text = md_plus_matcher.sub(r"\1\\\2", text)
-    text = md_dash_matcher.sub(r"\1\\\2", text)
     return text
 
 
@@ -781,12 +739,9 @@ def main():
         if len(args) == 2:
             encoding = args[1]
         if len(args) > 2:
-            p.error('Too many arguments')
 
-        if file_.startswith('http://') or file_.startswith('https://'):
             baseurl = file_
             j = urllib.urlopen(baseurl)
-            data = j.read()
             if encoding is None:
                 try:
                     from feedparser import _getCharacterEncoding as enc

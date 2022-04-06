@@ -26,28 +26,23 @@ class ResultWorker(object):
                 result=result
             )
         else:
-            logger.warning('result UNKNOW -> %.30r' % result)
             return
 
     def quit(self):
         self._quit = True
 
     def run(self):
-        logger.info("result_worker starting...")
 
         while not self._quit:
             try:
-                task, result = self.inqueue.get(timeout=1)
                 self.on_result(task, result)
             except Queue.Empty as e:
                 continue
             except KeyboardInterrupt:
                 break
             except AssertionError as e:
-                logger.error(e)
                 continue
             except Exception as e:
-                logger.exception(e)
                 continue
 
         logger.info("result_worker exiting...")

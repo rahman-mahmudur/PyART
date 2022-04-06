@@ -1,9 +1,9 @@
 from __future__ import unicode_literals
 
 from ..models import GitHubCore
-from ..repos import Repository
+from ..users import User
 
 
-class CodeSearchResult(GitHubCore):
+class UserSearchResult(GitHubCore):
     def _update_attributes(self, data):
-        reveal_type(data)
+        reveal_type(result)

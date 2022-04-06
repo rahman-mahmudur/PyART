@@ -1,8 +1,7 @@
 import pandas as pd
 import joblib,os,sys
 import time
-from sklearn import multiclass
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 
 proj_name="flask"
 start=time.time()
@@ -14,10 +13,10 @@ train_data=data[:trainnum]
 train_label=label[:trainnum]
 labels=train_label.values.ravel()
 
-clf=LogisticRegression(multiclass='ovr')
+clf=RandomForestClassifier()
 clf.fit(train_data,labels)
 result=clf.score(train_data,labels)
-joblib.dump(clf,'traincsv/'+proj_name+'regression.pkl')
+joblib.dump(clf,'traincsv/allennlp.pkl')
 print(result)
 #sys.exit()
 end=time.time()

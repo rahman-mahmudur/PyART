@@ -8,6 +8,5 @@ import time
 
 
 def pretty_date_time(date_time):
-    now = datetime.now(pytz.utc)
     if type(date_time) is int:
         reveal_type(datetime)

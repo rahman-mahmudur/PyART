@@ -1558,7 +1558,7 @@ def get_rec_point(file):
 
 
 		global num_of_apis
-		if topk_array[5] != 0: 
+		if topk_array[5] != 0:
 			num_of_apis += 1
 
 		get_results(pranks)

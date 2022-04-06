@@ -1731,15 +1731,21 @@ callps=[]
 
 all_apis={}
 
+try:
+		#======MAIN FUNC ENTRY======
+	for ifile in test_list:
+		dealwith(ifile)
+			#with open('/home/user/PyART/testdatak/'+CURRENT_PROJ+'_time.txt','w+') as f:
+				#f.write(str(ptimes))
+	
+except:
+	for x, y in enumerate(topk_array):
+		topk_array[x] = y/num_of_apis
+
+	print("Top K Averages for Linear Regression: Top 1: " + str(topk_array[0]) + " Top 2: " + str(topk_array[1]) + " Top 3: " + str(topk_array[2]) + " Top 4: " + str(topk_array[3]) + " Top 5: " + str(topk_array[4]) + " Top 10: " + str(topk_array[5]) + " MRR: " + str(topk_array[6]))	
 
 
-	#======MAIN FUNC ENTRY======
-for ifile in test_list:
-	dealwith(ifile)
-		#with open('/home/user/PyART/testdatak/'+CURRENT_PROJ+'_time.txt','w+') as f:
-			#f.write(str(ptimes))
 for x, y in enumerate(topk_array):
-	topk_array[x] = y/num_of_apis
-
-
+		topk_array[x] = y/num_of_apis
+		
 print("Top K Averages for Linear Regression: Top 1: " + str(topk_array[0]) + " Top 2: " + str(topk_array[1]) + " Top 3: " + str(topk_array[2]) + " Top 4: " + str(topk_array[3]) + " Top 5: " + str(topk_array[4]) + " Top 10: " + str(topk_array[5]) + " MRR: " + str(topk_array[6]))
