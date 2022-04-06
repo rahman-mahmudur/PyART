@@ -1,17 +1,92 @@
-This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
+## This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
 
-Current modifications:
+## Current modifications:
 * Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
 * Improved readability in terminal.
 * Added least recommended APIs for caller based on probability score.
-* Added Support Vector Machine and Logistic Regression Classifier to compare performance and accuracy.
+* Added Support Vector Machine, Naive Bayes, and Logistic Regression Classifier to compare performance and accuracy to Random Forest.
+* Commented out Google searching feature to speed up testing, uncomment to readd feature
+
+## Testing and ranking accuracy of different machine learning algorithms on accuracy of intra project reccomendation using average Top K scores:
+
+More information on Top K scores and MRR calculation in paper: https://arxiv.org/pdf/2102.04706.pdf
+
+## Testing method
+* Testing covers intra project reccomendation accuracy (test files starting with a)
+* Created separate folder for each project to tested for example flask_test and bs4_test
+* Added files to generate machine learning models and generate test results for each type of algorithm, for example generateclf.py, generatesvm.py, aget_test_result.py, aget_test_result_svm.py
+* K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score
+
+## Test Results:
+
+Could not test Bs4 and Httpbin due to missing files. 
+
+Flask results:
+
+Top K Averages for Random Forest: Top 1: 0.192 Top 2: 0.24 Top 3: 0.245 Top 4: 0.245 Top 5: 0.331 Top 10: 0.554 MRR: 0.266
+
+Top K Averages for SVM: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.180 Top 5: 0.271 Top 10: 0.4 MRR: 0.102
+
+Top K Averages for Naive Bayes: Top 1: 0.033Top 2: 0.083 Top 3: 0.271 Top 4: 0.271 Top 5: 0.271 Top 10: 0.299 MRR: 0.151
+
+Top K Averages for Linear Regression: Top 1: 0.0 Top 2: 0.167 Top 3: 0.167 Top 4: 0.167 Top 5: 0.167 Top 10: 0.324 MRR: 0.115
+
+Allennlp results:
+
+Top K Averages for Random Forest: Top 1: 0.086 Top 2: 0.103 Top 3: 0.133 Top 4: 0.172 Top 5: 0.246 Top 10: 0.534 MRR: 0.169
+
+Top K Averages for SVM: Top 1: 0.07 Top 2: 0.105 Top 3: 0.16 Top 4: 0.205 Top 5: 0.268 Top 10: 0.392 MRR: 0.153
+
+Top K Averages for Naive Bayes: Top 1: 0.176 Top 2: 0.219 Top 3: 0.247 Top 4: 0.247 Top 5: 0.377 Top 10: 0.538 MRR: 0.262
+
+Top K Averages for Linear Regression: Top 1: 0.112 Top 2: 0.160 Top 3: 0.225 Top 4: 0.258 Top 5: 0.27 Top 10: 0.456 MRR: 0.207
+
+Cornice results:
+
+Top K Averages for Random Forest: Top 1: 0.192 Top 2: 0.24 Top 3: 0.245 Top 4: 0.245 Top 5: 0.331 Top 10: 0.554 MRR: 0.266
+
+Top K Averages for SVM: Top 1: 0.19 Top 2: 0.19 Top 3: 0.19 Top 4: 0.19 Top 5: 0.19 Top 10: 0.268 MRR: 0.205
+
+Top K Averages for Naive Bayes: Top 1: 0.265 Top 2: 0.265 Top 3: 0.265 Top 4: 0.265 Top 5: 0.392 Top 10: 0.444 MRR: 0.309
+
+Top K Averages for Linear Regression: Top 1: 0.203 Top 2: 0.203 Top 3: 0.203 Top 4: 0.203 Top 5: 0.203 Top 10: 0.203 MRR: 0.215
 
 
+
+Gitsome results:
+
+Top K Averages for Random Forest: Top 1: 0.022 Top 2: 0.1941 Top 3: 0.194 Top 4: 0.194 Top 5: 0.194 Top 10: 0.316 MRR: 0.133
+
+Top K Averages for SVM: Top 1: 0.134 Top 2: 0.134 Top 3: 0.134 Top 4: 0.134 Top 5: 0.134 Top 10: 0.134 MRR: 0.141
+
+Top K Averages for Naive Bayes: Top 1: 0.05 Top 2: 0.168 Top 3: 0.207 Top 4: 0.214  Top 5: 0.225 Top 10: 0.482 MRR: 0.17
+
+Top K Averages for Linear Regression: Top 1: 0.061 Top 2: 0.189 Top 3: 0.189 Top 4: 0.189 Top 5: 0.290 Top 10: 0.505 MRR: 0.184
+
+Pyspider results:
+
+Top K Averages for Random Forest: Top 1: 0.12  Top 2: 0.12  Top 3: 0.167 Top 4: 0.167 Top 5: 0.174 Top 10: 0.291 MRR: 0.168
+
+Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
+
+Top K Averages for Naive Bayes: Top 1: 0.1 Top 2: 0.1 Top 3: 0.157 Top 4: 0.251 Top 5: 0.285 Top 10: 0.511 MRR: 0.19
+
+Top K Averages for Linear Regression: Top 1: 0.14Top 2: 0.213 Top 3: 0.255 Top 4: 0.255 Top 5: 0.274 Top 10: 0.547 MRR: 0.24
+
+Simplejson results:
+
+Top K Averages for Random Forest: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
+
+Top K Averages for Random Forest: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
+
+Top K Averages for Naive Bayes: Top 1: 0.0 Top 2: 0.0 Top 3: 0.52 Top 4: 0.52 Top 5: 0.52 Top 10: 0.667 MRR: 0.193
+
+Top K Averages for Linear Regression: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.52 MRR: 0.09
+
+
+
+##Readme instructions for API reccomendation from original project:
 Link to original project: https://github.com/PYART0/PyART-demo
-
-Readme instructions for API reccomendation from original project:
-
-
 ## Description
 
 PyART is a real-time API recommendation tool for Python, which includes two main functions:
