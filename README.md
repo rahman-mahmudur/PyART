@@ -85,7 +85,7 @@ Top K Averages for Linear Regression: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.
 
 
 
-##Readme instructions for API reccomendation from original project:
+## Readme instructions for API reccomendation from original project:
 Link to original project: https://github.com/PYART0/PyART-demo
 ## Description
 
