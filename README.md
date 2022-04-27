@@ -20,7 +20,7 @@ More information on Top K scores and MRR calculation in paper: https://arxiv.org
 
 ## Testing method for accross project
 * Testing covers accross project reccomendation accuracy (test files starting with b)
-* Only using allennlp folder and changing CURRENT_PROJ variable in bget_test_result.py, bget_test_result_nb, bget_test_result_svm, bget_test_result_regression, and get_train_kfold.py for the sake of time saving
+* Only using allennlp folder and changing CURRENT_PROJ variable in bget_test_result.py, bget_test_result_nb, bget_test_result_svm, and bget_test_result_regression for the sake of time saving
 * * Added files to generate machine learning models and generate test results for each type of algorithm, for example ac_generateclf.py, ac_generatesvm.py, bget_test_result.py, bget_test_result_svm.py
 * Otherwaise similar process as intra project testing
 
