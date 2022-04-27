@@ -16,12 +16,13 @@ More information on Top K scores and MRR calculation in paper: https://arxiv.org
 * Test projects saved in testdata folder
 * Created separate folder for each project to tested for example flask_test and bs4_test
 * Added files to generate machine learning models and generate test results for each type of algorithm, for example generateclf.py, generatesvm.py, aget_test_result.py, aget_test_result_svm.py
-* K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score
+* K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score and output in terminal at end of each test script
 
 ## Testing method for accross project
 * Testing covers accross project reccomendation accuracy (test files starting with b)
 * Only using allennlp folder and changing CURRENT_PROJ variable in bget_test_result.py (and other test files) for the sake of time saving
-* Otherwaise similar process for intra project testing
+* * Added files to generate machine learning models and generate test results for each type of algorithm, for example ac_generateclf.py, ac_generatesvm.py, bget_test_result.py, bget_test_result_svm.py
+* Otherwaise similar process as intra project testing
 
 ## Test Results:
 
