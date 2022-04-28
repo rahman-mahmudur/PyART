@@ -1,6 +1,6 @@
 ## This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
-Link to original project: https://github.com/PYART0/PyART-demo
-Link to Paper: https://arxiv.org/pdf/2102.04706.pdf
+* Link to original project: https://github.com/PYART0/PyART-demo
+* Link to Paper: https://arxiv.org/pdf/2102.04706.pdf
 
 ## Current modifications:
 * Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
