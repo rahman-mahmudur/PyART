@@ -1,5 +1,6 @@
 ## This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
 Link to original project: https://github.com/PYART0/PyART-demo
+Link to Paper: https://arxiv.org/pdf/2102.04706.pdf
 
 ## Current modifications:
 * Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
@@ -11,7 +12,7 @@ Link to original project: https://github.com/PYART0/PyART-demo
 
 ## Testing and ranking accuracy of different machine learning algorithms on accuracy of intra project reccomendation using average Top K scores:
 
-More information on Top K scores and MRR calculation in paper: https://arxiv.org/pdf/2102.04706.pdf
+More information on Top K scores and MRR calculation in paper.
 
 ## Testing method for intra project
 * Testing covers intra project reccomendation accuracy (test files starting with a)
