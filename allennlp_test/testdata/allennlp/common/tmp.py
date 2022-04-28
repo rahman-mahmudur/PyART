@@ -1,35 +1,51 @@
-import importlib
+import collections.abc
+from copy import deepcopy
+from pathlib import Path
+from typing import (
+    Any,
+    Callable,
+    cast,
+    Dict,
+    Iterable,
+    List,
+    Mapping,
+    Set,
+    Tuple,
+    Type,
+    TypeVar,
+    Union,
+)
+import inspect
 import logging
-import os
-from typing import Iterable
 
-from allennlp.common.util import push_python_path, import_module_and_submodules
+from allennlp.common.checks import ConfigurationError
+from allennlp.common.lazy import Lazy
+from allennlp.common.params import Params
 
 logger = logging.getLogger(__name__)
 
+T = TypeVar("T", bound="FromParams")
 
-DEFAULT_PLUGINS = ("allennlp_models", "allennlp_server")
+_NO_DEFAULT = inspect.Parameter.empty
 
 
-def discover_file_plugins(plugins_filename: str = ".allennlp_plugins") -> Iterable[str]:
-    if os.path.isfile(plugins_filename):
-        with open(plugins_filename) as file_:
-            for module_name in file_.readlines():
-                if module_name:
-                    yield module_name
+def takes_arg(obj, arg: str) -> bool:
+    if inspect.isclass(obj):
+        signature = inspect.signature(obj.__init__)
+    elif inspect.ismethod(obj) or inspect.isfunction(obj):
+        signature = inspect.signature(obj)
     else:
-        return []
+        raise ConfigurationError(f"object {obj} is not callable")
+    return arg in signature.parameters
 
 
-def discover_plugins() -> Iterable[str]:
-    with push_python_path("."):
-        yield from discover_file_plugins()
-
-
-def import_plugins() -> None:
-    for module_name in DEFAULT_PLUGINS:
-        try:
-            import_module_and_submodules(module_name)
-            reveal_type(logger)
-        except Exception:
-        	pass
+def takes_kwargs(obj) -> bool:
+    if inspect.isclass(obj):
+        signature = inspect.signature(obj.__init__)
+    elif inspect.ismethod(obj) or inspect.isfunction(obj):
+        signature = inspect.signature(obj)
+    else:
+        raise ConfigurationError(f"object {obj} is not callable")
+    return any(
+        p.kind == inspect.Parameter.VAR_KEYWORD  # type: ignore)
+        reveal_type(signature.parameters)

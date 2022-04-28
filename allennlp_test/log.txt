@@ -1,11 +1,11 @@
 ninja: Entering directory `.pytype'
-ninja: build stopped: interrupted by user.
-home/parallels/PyART-demo/PyART/allennlp_test/.pytype/pyi/allennlp/commands/tmp.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/imports/allennlp.commands.tmp.imports --module-name allennlp.commands.tmp -V 3.8 -o /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/pyi/allennlp/commands/tmp.pyi --analyze-annotated --nofail --quick /home/parallels/PyART-demo/PyART/allennlp_test/testdata/allennlp/commands/tmp.py
-File "/home/parallels/PyART-demo/PyART/allennlp_test/testdata/allennlp/commands/tmp.py", line 15, in <module>: Type[allennlp.commands.subcommand.Subcommand] [reveal-type]
+[1/1] check allennlp.common.tmp
+FAILED: /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/pyi/allennlp/common/tmp.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/imports/allennlp.common.tmp.imports --module-name allennlp.common.tmp -V 3.8 -o /home/parallels/PyART-demo/PyART/allennlp_test/.pytype/pyi/allennlp/common/tmp.pyi --analyze-annotated --nofail --quick /home/parallels/PyART-demo/PyART/allennlp_test/testdata/allennlp/common/tmp.py
+File "/home/parallels/PyART-demo/PyART/allennlp_test/testdata/allennlp/common/tmp.py", line 51: Incomplete input. Encountered 'reveal_type', but expected ')'. [python-compiler-error]
 
-For more details, see https://google.github.io/pytype/errors.html#reveal-type
+For more details, see https://google.github.io/pytype/errors.html#python-compiler-error
 ninja: build stopped: subcommand failed.
 Computing dependencies
-Analyzing 1 sources with 41 local dependencies
+Analyzing 1 sources with 0 local dependencies
 Leaving directory '.pytype'

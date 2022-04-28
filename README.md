@@ -1,21 +1,34 @@
 ## This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
+* Link to original project: https://github.com/PYART0/PyART-demo
+* Link to Paper: https://arxiv.org/pdf/2102.04706.pdf
 
 ## Current modifications:
 * Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
 * Improved readability in terminal.
 * Added least recommended APIs for caller based on probability score.
 * Added Support Vector Machine, Naive Bayes, and Logistic Regression Classifier to compare performance and accuracy to Random Forest.
-* Commented out Google searching feature to speed up testing, uncomment to readd feature
+* Commented out Google searching feature to speed up testing, uncomment to re-add feature
+* Added and performed tests of Intra project reccomendation accuracy using top k scores
 
 ## Testing and ranking accuracy of different machine learning algorithms on accuracy of intra project reccomendation using average Top K scores:
 
-More information on Top K scores and MRR calculation in paper: https://arxiv.org/pdf/2102.04706.pdf
+More information on Top K scores and MRR calculation in paper.
 
-## Testing method
+## Testing method for intra project
 * Testing covers intra project reccomendation accuracy (test files starting with a)
+* Test projects saved in testdata folder
 * Created separate folder for each project to tested for example flask_test and bs4_test
 * Added files to generate machine learning models and generate test results for each type of algorithm, for example generateclf.py, generatesvm.py, aget_test_result.py, aget_test_result_svm.py
-* K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score
+* K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score and output in terminal at end of each test script
+
+## Testing method for accross project (Failed, see details below)
+* Testing covers accross project reccomendation accuracy (test files starting with b)
+* Only using allennlp folder and changing CURRENT_PROJ variable in bget_test_result.py, bget_test_result_nb, bget_test_result_svm, and bget_test_result_regression for the sake of time saving
+* * Added files to generate machine learning models and generate test results for each type of algorithm, for example ac_generateclf.py, ac_generatesvm.py, bget_test_result.py, bget_test_result_svm.py
+* Otherwaise similar process as intra project testing
+
+## Accross project testing failed due to bug in original Pyart project when trying to generate machine learning models (needs to be fixed)
+Error caused when trying to generate machine learning models using ac_generateclf.py, ac_gnerateNaiveBayes.py, etc.
 
 ## Test Results:
 
@@ -67,7 +80,7 @@ Pyspider results:
 
 Top K Averages for Random Forest: Top 1: 0.12  Top 2: 0.12  Top 3: 0.167 Top 4: 0.167 Top 5: 0.174 Top 10: 0.291 MRR: 0.168
 
-Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
+Top K Acerages for SVM: Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
 
 Top K Averages for Naive Bayes: Top 1: 0.1 Top 2: 0.1 Top 3: 0.157 Top 4: 0.251 Top 5: 0.285 Top 10: 0.511 MRR: 0.19
 
@@ -77,7 +90,7 @@ Simplejson results:
 
 Top K Averages for Random Forest: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
 
-Top K Averages for Random Forest: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
+Top K Averages for SVM: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
 
 Top K Averages for Naive Bayes: Top 1: 0.0 Top 2: 0.0 Top 3: 0.52 Top 4: 0.52 Top 5: 0.52 Top 10: 0.667 MRR: 0.193
 
@@ -86,7 +99,7 @@ Top K Averages for Linear Regression: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.
 
 
 ## Readme instructions for API reccomendation from original project:
-Link to original project: https://github.com/PYART0/PyART-demo
+
 ## Description
 
 PyART is a real-time API recommendation tool for Python, which includes two main functions:

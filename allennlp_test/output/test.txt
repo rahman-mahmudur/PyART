@@ -1,1582 +1,449 @@
-dataset_reader fdopen
-dataset_reader _empty_per_channel_affine_quantized
-dataset_reader randint
-dataset_reader lastResort
-dataset_reader major
-dataset_reader _ctc_loss
-dataset_reader _batch_norm_impl_index
-dataset_reader subtract
-dataset_reader _foreach_lgamma_
-dataset_reader _foreach_div
-dataset_reader asin_
-dataset_reader repeat_interleave
-dataset_reader rsqrt_
-dataset_reader i0
-dataset_reader tensordot
-dataset_reader fget
-dataset_reader instance_norm
-dataset_reader _s_where
-dataset_reader _logcumsumexp
-dataset_reader tan_
-dataset_reader lseek
-dataset_reader re
-dataset_reader popitem
-dataset_reader native_group_norm
-dataset_reader fill_
-dataset_reader celu_
-dataset_reader le
-dataset_reader _saturate_weight_to_fp16
-dataset_reader mean
-dataset_reader adaptive_max_pool1d
-dataset_reader fspath
-dataset_reader kill
-dataset_reader permute
-dataset_reader append
-dataset_reader time
-dataset_reader _AppendConstAction
-dataset_reader _register_device_module
-dataset_reader setpgrp
-dataset_reader _validate_sparse_coo_tensor_args
-dataset_reader _cast_Char
-dataset_reader testing
-dataset_reader _sys
-dataset_reader _cast_Long
-dataset_reader logit
-dataset_reader scatter_object_list
-dataset_reader log2_
-dataset_reader get_default_dtype
-dataset_reader setattr
-dataset_reader abc
-dataset_reader _cummax_helper
-dataset_reader binomial
-dataset_reader isalnum
-dataset_reader index_put
-dataset_reader nice
-dataset_reader complex
-dataset_reader erfc_
-dataset_reader get_fields_to_compare
-dataset_reader swapcase
-dataset_reader feature_alpha_dropout_
-dataset_reader _foreach_reciprocal
-dataset_reader cosh
-dataset_reader less
-dataset_reader _foreach_log1p
-dataset_reader _sync
-dataset_reader long
-dataset_reader conj
-dataset_reader rsub
-dataset_reader _HelpAction
-dataset_reader eye
-dataset_reader profiler
-dataset_reader _disable_functionalization
-dataset_reader _srcfile
-dataset_reader fbgemm_linear_fp16_weight_fp32_activation
-dataset_reader _grid_sampler_2d_cpu_fallback
-dataset_reader _register_comm_hook
-dataset_reader batch_norm_update_stats
-dataset_reader sort
-dataset_reader slogdet
-dataset_reader _foreach_ceil
-dataset_reader pread
-dataset_reader _make_per_channel_quantized_tensor
-dataset_reader reduce_op
-dataset_reader predictions_to_labeled_instances
-dataset_reader getpriority
-dataset_reader algorithms
-dataset_reader reductions
-dataset_reader amax
-dataset_reader svd_lowrank
-dataset_reader fbgemm_pack_quantized_matrix
-dataset_reader quint4x2
-dataset_reader locals
-dataset_reader _foreach_floor
-dataset_reader preserve_format
-dataset_reader _mkldnn_reshape
-dataset_reader mknod
-dataset_reader execv
-dataset_reader _special
-dataset_reader _six
-dataset_reader frac
-dataset_reader _load_global_deps
-dataset_reader monitored_barrier
-dataset_reader error
-dataset_reader parse_type_comment
-dataset_reader gather_object
-dataset_reader trunc
-dataset_reader gcd_
-dataset_reader instance_has_changed
-dataset_reader nanquantile
-dataset_reader has_lapack
-dataset_reader fchdir
-dataset_reader arcsin_
-dataset_reader hamming_window
-dataset_reader sendfile
-dataset_reader full
-dataset_reader setter
-dataset_reader copysign
-dataset_reader promote_types
-dataset_reader isreal
-dataset_reader half
-dataset_reader reduce_scatter_multigpu
-dataset_reader _linalg_svd
-dataset_reader _reduce_scatter_base
-dataset_reader fake_quantize_per_tensor_affine
-dataset_reader mkldnn_convolution
-dataset_reader devnull
-dataset_reader set_autocast_gpu_dtype
-dataset_reader lcm_
-dataset_reader _str_formatter
-dataset_reader default_pg_timeout
-dataset_reader _tensor
-dataset_reader _handlers
-dataset_reader quint2x4
-dataset_reader read_vitals
-dataset_reader fmax
-dataset_reader access
-dataset_reader info
-dataset_reader quint8
-dataset_reader _foreach_atan_
-dataset_reader _use_cudnn_ctc_loss
-dataset_reader ascii
-dataset_reader bit_length
-dataset_reader _os
-dataset_reader _ops
-dataset_reader getLevelName
-dataset_reader imag
-dataset_reader format_map
-dataset_reader negative
-dataset_reader relu_
-dataset_reader copy_file_range
-dataset_reader ao
-dataset_reader resolve_conj
-dataset_reader _sparse_mm
-dataset_reader cat
-dataset_reader _foreach_add_
-dataset_reader ge
-dataset_reader arccosh
-dataset_reader arctan
-dataset_reader floor
-dataset_reader tensor
-dataset_reader _foreach_sub
-dataset_reader conv_transpose2d
-dataset_reader diag
-dataset_reader scatter_add
-dataset_reader int
-dataset_reader acosh_
-dataset_reader _histogramdd_from_bin_tensors
-dataset_reader _cummin_helper
-dataset_reader mkldnn_linear_backward_weights
-dataset_reader recv
-dataset_reader init_builtin
-dataset_reader clamp_min_
-dataset_reader minor
-dataset_reader getuid
-dataset_reader times
-dataset_reader erfc
-dataset_reader hspmm
-dataset_reader kaiser_window
-dataset_reader sched_yield
-dataset_reader _SubParsersAction
-dataset_reader critical
-dataset_reader root
-dataset_reader _amp_update_scale_
-dataset_reader masked_fill
-dataset_reader new_subgroups_by_enumeration
-dataset_reader exit
-dataset_reader frombuffer
-dataset_reader _get_exports_list
-dataset_reader strerror
-dataset_reader repr
-dataset_reader spawnlp
-dataset_reader _is_zerotensor
-dataset_reader format
-dataset_reader get_token_index
-dataset_reader group_norm
-dataset_reader _Work
-dataset_reader contiguous_format
-dataset_reader logging
-dataset_reader _foreach_addcmul
-dataset_reader masked_scatter
-dataset_reader symmetric_difference
-dataset_reader _utils
-dataset_reader name
-dataset_reader gradient
-dataset_reader removedirs
-dataset_reader chdir
-dataset_reader mm
-dataset_reader deg2rad
-dataset_reader _foreach_cosh
-dataset_reader _foreach_reciprocal_
-dataset_reader _round_robin_process_groups
-dataset_reader sync
-dataset_reader feature_dropout
-dataset_reader callable
-dataset_reader renames
-dataset_reader sched_getaffinity
-dataset_reader raw_input
-dataset_reader join
-dataset_reader ctermid
-dataset_reader wait
-dataset_reader unsafe_split
-dataset_reader isin
-dataset_reader mul
-dataset_reader reshape
-dataset_reader strided
-dataset_reader keys
-dataset_reader flip
-dataset_reader pixel_unshuffle
-dataset_reader ljust
-dataset_reader _convert_indices_from_coo_to_csr
-dataset_reader clear
-dataset_reader is_inference
-dataset_reader lobpcg
-dataset_reader currentframe
-dataset_reader hypot
-dataset_reader set_autocast_cache_enabled
-dataset_reader range
-dataset_reader round
-dataset_reader close
-dataset_reader symlink
-dataset_reader sys
-dataset_reader atleast_2d
-dataset_reader set_anomaly_enabled
-dataset_reader apply
-dataset_reader with_traceback
-dataset_reader _foreach_neg_
-dataset_reader getegid
-dataset_reader symeig
-dataset_reader conj_physical
-dataset_reader hinge_embedding_loss
-dataset_reader log
-dataset_reader threshold
-dataset_reader grid_sampler_3d
-dataset_reader getrandom
-dataset_reader vdot
-dataset_reader rstrip
-dataset_reader cos_
-dataset_reader as_tensor
-dataset_reader float32
-dataset_reader spawnlpe
-dataset_reader choose_qparams_optimized
-dataset_reader vstack
-dataset_reader addLevelName
-dataset_reader arccos
-dataset_reader linspace
-dataset_reader fset
-dataset_reader writable
-dataset_reader _foreach_mul_
-dataset_reader imag-getter
-dataset_reader makeLogRecord
-dataset_reader waitpid
-dataset_reader broadcast_multigpu
-dataset_reader copyright
-dataset_reader exp_
-dataset_reader register
-dataset_reader os
-dataset_reader native_layer_norm
-dataset_reader _embedding_bag_forward_only
-dataset_reader stat_result
-dataset_reader makedirs
-dataset_reader quantized_max_pool1d
-dataset_reader posix_fadvise
-dataset_reader _softmax
-dataset_reader disable
-dataset_reader isposinf
-dataset_reader expm1_
-dataset_reader memfd_create
-dataset_reader prelu
-dataset_reader new_group
-dataset_reader ne
-dataset_reader cosine_similarity
-dataset_reader is_grad_enabled
-dataset_reader fchown
-dataset_reader rand
-dataset_reader is_mpi_available
-dataset_reader randperm
-dataset_reader _foreach_sqrt_
-dataset_reader cholesky_solve
-dataset_reader get_blocking
-dataset_reader deleter
-dataset_reader row_stack
-dataset_reader fmod
-dataset_reader _StderrHandler
-dataset_reader random
-dataset_reader _foreach_acos
-dataset_reader ldexp_
-dataset_reader seek
-dataset_reader eval
-dataset_reader current_process
-dataset_reader batch_norm_gather_stats
-dataset_reader altsep
-dataset_reader get_all_start_methods
-dataset_reader constant_pad_nd
-dataset_reader set_forkserver_preload
-dataset_reader arctanh
-dataset_reader cross
-dataset_reader igamma
-dataset_reader is_available
-dataset_reader setreuid
-dataset_reader trapezoid
-dataset_reader _sparse_sparse_matmul
-dataset_reader fromhex
-dataset_reader arcsin
-dataset_reader fchmod
-dataset_reader initialize
-dataset_reader batch_norm_gather_stats_with_counts
-dataset_reader normal
-dataset_reader forward_on_instance
-dataset_reader _register_builtin_comm_hook
-dataset_reader ravel
-dataset_reader fbgemm_pack_gemm_matrix_fp16
-dataset_reader sqrt
-dataset_reader isfinite
-dataset_reader addr
-dataset_reader has_mkldnn
-dataset_reader _atfork
-dataset_reader reload
-dataset_reader get_autocast_cpu_dtype
-dataset_reader embedding
-dataset_reader clip_
-dataset_reader _fft_c2r
-dataset_reader fbgemm_linear_int8_weight_fp32_activation
-dataset_reader exp2
-dataset_reader startswith
-dataset_reader addmm
-dataset_reader decode
-dataset_reader isdecimal
-dataset_reader supports_follow_symlinks
-dataset_reader is_neg
-dataset_reader preadv
-dataset_reader fix_
-dataset_reader atleast_3d
-dataset_reader times_result
-dataset_reader eig
-dataset_reader is_conj
-dataset_reader quantized_gru
-dataset_reader _sparse_coo_tensor_unsafe
-dataset_reader i0_
-dataset_reader get_terminal_size
-dataset_reader autocast_increment_nesting
-dataset_reader get_gradients
-dataset_reader polygamma
-dataset_reader pipe2
-dataset_reader _lowrank
-dataset_reader kron
-dataset_reader pathconf
-dataset_reader per_channel_affine_float_qparams
-dataset_reader get_context
-dataset_reader stft
-dataset_reader _histogramdd_from_bin_cts
-dataset_reader pow
-dataset_reader celu
-dataset_reader scandir
-dataset_reader _DistributedDebugLevel
-dataset_reader getresuid
-dataset_reader getLoggerClass
-dataset_reader iter
-dataset_reader constants
-dataset_reader maketrans
-dataset_reader get_deterministic_debug_mode
-dataset_reader abs
-dataset_reader pi
-dataset_reader channels_last
-dataset_reader _convolution_mode
-dataset_reader load
-dataset_reader parse_schema
-dataset_reader broadcast_shapes
-dataset_reader torch_version
-dataset_reader svd
-dataset_reader register_rendezvous_handler
-dataset_reader reverse
-dataset_reader _cast_Byte
-dataset_reader dropout_
-dataset_reader divide
-dataset_reader rename
-dataset_reader import_ir_module
-dataset_reader multiprocessing
-dataset_reader all_reduce
-dataset_reader sinh
-dataset_reader shutdown
-dataset_reader sched_getscheduler
-dataset_reader _pin_memory
-dataset_reader index
-dataset_reader _det_lu_based_helper
-dataset_reader _dirichlet_grad
-dataset_reader tril
-dataset_reader isdigit
-dataset_reader lu_unpack
-dataset_reader getloadavg
-dataset_reader expandtabs
-dataset_reader _neg_view
-dataset_reader torch
-dataset_reader inverse
-dataset_reader blackman_window
-dataset_reader zero_
-dataset_reader poisson_nll_loss
-dataset_reader rfind
-dataset_reader _foreach_abs_
-dataset_reader setsid
-dataset_reader sinh_
-dataset_reader _cudnn_rnn_flatten_weight
-dataset_reader lstm_cell
-dataset_reader set_default_tensor_type
-dataset_reader functional
-dataset_reader float
-dataset_reader poisson
-dataset_reader mvlgamma
-dataset_reader get_rank
-dataset_reader register_forward_hook
-dataset_reader find
-dataset_reader cumprod
-dataset_reader add
-dataset_reader _choose_qparams_per_tensor
-dataset_reader difference
-dataset_reader cdouble
-dataset_reader miopen_batch_norm
-dataset_reader q_per_channel_scales
-dataset_reader sqrt_
-dataset_reader histogramdd
-dataset_reader lower
-dataset_reader func
-dataset_reader _add_batch_dim
-dataset_reader _cudnn_init_dropout_state
-dataset_reader argwhere
-dataset_reader argmin
-dataset_reader expm1
-dataset_reader logcumsumexp
-dataset_reader openpty
-dataset_reader combinations
-dataset_reader remove
-dataset_reader active_children
-dataset_reader supports_bytes_environ
-dataset_reader cumsum
-dataset_reader getter
-dataset_reader roll
-dataset_reader atanh
-dataset_reader open
-dataset_reader _fake_quantize_learnable_per_channel_affine
-dataset_reader _add_relu
-dataset_reader _CountAction
-dataset_reader to_bytes
-dataset_reader _removeHandlerRef
-dataset_reader _foreach_log2_
-dataset_reader bincount
-dataset_reader remote_device
-dataset_reader chain_matmul
-dataset_reader diagonal_scatter
-dataset_reader _trilinear
-dataset_reader autocast_decrement_nesting
-dataset_reader storage
-dataset_reader topk
-dataset_reader uname_result
-dataset_reader _classes
-dataset_reader heaviside
-dataset_reader log10
-dataset_reader meshgrid
-dataset_reader _cast_Half
-dataset_reader short
-dataset_reader _foreach_tanh
-dataset_reader unique
-dataset_reader update
-dataset_reader unsqueeze
-dataset_reader _namedtensor_internals
-dataset_reader quantized_rnn_tanh_cell
-dataset_reader vsplit
-dataset_reader sparse_csr
-dataset_reader _loggerClass
-dataset_reader are_deterministic_algorithms_enabled
-dataset_reader len
-dataset_reader tcsetpgrp
-dataset_reader triu_indices
-dataset_reader _lu_with_info
-dataset_reader supports_effective_ids
-dataset_reader _index_copy_
-dataset_reader merge_type_from_type_comment
-dataset_reader set_num_interop_threads
-dataset_reader map
-dataset_reader acos
-dataset_reader _convert_indices_from_csr_to_coo
-dataset_reader any
-dataset_reader is_nccl_available
-dataset_reader addcmul
-dataset_reader dot
-dataset_reader lstsq
-dataset_reader matmul
-dataset_reader release
-dataset_reader embedding_layer
-dataset_reader confstr_names
-dataset_reader detach
-dataset_reader log10_
-dataset_reader pca_lowrank
-dataset_reader ldexp
-dataset_reader optim
-dataset_reader count
-dataset_reader select
-dataset_reader has_mkl
-dataset_reader _foreach_sqrt
-dataset_reader isprintable
-dataset_reader lstm
-dataset_reader supports_complex
-dataset_reader real-getter
-dataset_reader iterkeys
-dataset_reader _ArgumentGroup
-dataset_reader softmax
-dataset_reader pop
-dataset_reader sched_get_priority_min
-dataset_reader _coalesce
-dataset_reader addmv
-dataset_reader compiled_with_cxx11_abi
-dataset_reader _cudnn_rnn
-dataset_reader detach_
-dataset_reader has_openmp
-dataset_reader int16
-dataset_reader from_numpy
-dataset_reader quantize_per_tensor_dynamic
-dataset_reader execlp
-dataset_reader _fake_quantize_learnable_per_tensor_affine
-dataset_reader pathconf_names
-dataset_reader set_autocast_cpu_dtype
-dataset_reader issubclass
-dataset_reader float64
-dataset_reader kthvalue
-dataset_reader getgid
-dataset_reader orgqr
-dataset_reader _mkldnn
-dataset_reader _sparse_log_softmax_backward_data
-dataset_reader nansum
-dataset_reader view_as_real
-dataset_reader select_scatter
-dataset_reader gcd
-dataset_reader _aminmax
-dataset_reader gru_cell
-dataset_reader cdist
-dataset_reader _pad_packed_sequence
-dataset_reader _lobpcg
-dataset_reader compile
-dataset_reader native_batch_norm
-dataset_reader polar
-dataset_reader _sparse_csr_tensor_unsafe
-dataset_reader pwritev
-dataset_reader double
-dataset_reader absolute
-dataset_reader isend
-dataset_reader sinc_
-dataset_reader log_softmax
-dataset_reader execlpe
-dataset_reader _remove_batch_dim
-dataset_reader bitwise_and
-dataset_reader rpartition
-dataset_reader sorted
-dataset_reader setpriority
-dataset_reader sep
-dataset_reader distributed_c10d
-dataset_reader selu_
-dataset_reader rjust
-dataset_reader _cufft_get_plan_cache_size
-dataset_reader nanmedian
-dataset_reader log1p
-dataset_reader addbmm
-dataset_reader fork
-dataset_reader get_rng_state
-dataset_reader _from_functional_tensor
-dataset_reader remainder
-dataset_reader next
-dataset_reader embedding_bag
-dataset_reader set_start_method
-dataset_reader credits
-dataset_reader _cudnn_ctc_loss
-dataset_reader asinh_
-dataset_reader sum
-dataset_reader iteritems
-dataset_reader round_
-dataset_reader hsmm
-dataset_reader is_inference_mode_enabled
-dataset_reader confstr
-dataset_reader traceback
-dataset_reader dropout
-dataset_reader triu
-dataset_reader _foreach_atan
-dataset_reader spawnv
-dataset_reader _compute_bucket_assignment_by_size
-dataset_reader argmax
-dataset_reader lu
-dataset_reader e
-dataset_reader items
-dataset_reader weakref
-dataset_reader execl
-dataset_reader equal
-dataset_reader broadcast_object_list
-dataset_reader writev
-dataset_reader has_cudnn
-dataset_reader _nnpack_spatial_convolution
-dataset_reader bin
-dataset_reader log1p_
-dataset_reader readlines
-dataset_reader native_norm
-dataset_reader less_equal
-dataset_reader rsqrt
-dataset_reader set_grad_enabled
-dataset_reader _foreach_floor_
-dataset_reader init_reductions
-dataset_reader _foreach_acos_
-dataset_reader index_put_
-dataset_reader renorm
-dataset_reader baddbmm
-dataset_reader _StoreAction
-dataset_reader dup2
-dataset_reader all
-dataset_reader stat
-dataset_reader _det_lu_based_helper_backward_helper
-dataset_reader all_gather_object
-dataset_reader segment_reduce
-dataset_reader candidate
-dataset_reader abs_
-dataset_reader isalpha
-dataset_reader autocast
-dataset_reader quantization
-dataset_reader setpgid
-dataset_reader flush
-dataset_reader reduce_scatter
-dataset_reader _backend
-dataset_reader vars
-dataset_reader is_floating_point
-dataset_reader initial_seed
-dataset_reader _StoreTrueAction
-dataset_reader _native_multi_head_self_attention
-dataset_reader _masked_scale
-dataset_reader _sobol_engine_draw
-dataset_reader sched_param
-dataset_reader _assert
-dataset_reader _spawnvef
-dataset_reader bernoulli
-dataset_reader difference_update
-dataset_reader timedelta
-dataset_reader isinstance
-dataset_reader sparse_coo_tensor
-dataset_reader cpp
-dataset_reader _putenv
-dataset_reader sub
-dataset_reader pickle
-dataset_reader barrier
-dataset_reader io
-dataset_reader quantized_lstm_cell
-dataset_reader histc
-dataset_reader adaptive_avg_pool1d
-dataset_reader atexit
-dataset_reader diag_embed
-dataset_reader set_autocast_cpu_enabled
-dataset_reader _string_classes
-dataset_reader tanh
-dataset_reader list_available
-dataset_reader _log_softmax_backward_data
-dataset_reader threading
-dataset_reader log_
-dataset_reader _storage_classes
-dataset_reader hex
-dataset_reader environb
-dataset_reader diagflat
-dataset_reader gt
-dataset_reader is_autocast_enabled
-dataset_reader kl_div
-dataset_reader tanh_
-dataset_reader _cufft_get_plan_cache_max_size
-dataset_reader _euclidean_dist
-dataset_reader cudnn_affine_grid_generator
-dataset_reader from_params
-dataset_reader logical_xor
-dataset_reader sched_setaffinity
-dataset_reader _fused_moving_avg_obs_fq_helper
-dataset_reader values
-dataset_reader _test_python_store
-dataset_reader cudnn_grid_sampler
-dataset_reader pardir
-dataset_reader warnings
-dataset_reader spawnl
-dataset_reader _foreach_abs
-dataset_reader negative_
-dataset_reader mkldnn_max_pool2d
-dataset_reader posix_spawn
-dataset_reader _foreach_sin_
-dataset_reader _UntypedStorage
-dataset_reader multiply
-dataset_reader tokens_to_indices
-dataset_reader fbgemm_linear_quantize_weight
-dataset_reader _use_cudnn_rnn_flatten_weight
-dataset_reader spawn
-dataset_reader walk
-dataset_reader arange
-dataset_reader norm
-dataset_reader _tensor_str
-dataset_reader saddmm
-dataset_reader bfloat16
-dataset_reader distributions
-dataset_reader conv1d
-dataset_reader max_pool1d_with_indices
-dataset_reader _StorageBase
-dataset_reader sched_rr_get_interval
-dataset_reader chunk
-dataset_reader batch_norm
-dataset_reader start_processes
-dataset_reader miopen_rnn
-dataset_reader _VersionAction
-dataset_reader as_padded_tensor_dict
-dataset_reader unsafe_chunk
-dataset_reader _addHandlerRef
-dataset_reader positive
-dataset_reader solve
-dataset_reader _index_put_impl_
-dataset_reader _cufft_set_plan_cache_max_size
-dataset_reader _tensor_classes
-dataset_reader viewitems
-dataset_reader umask
-dataset_reader _histogramdd_bin_edges
-dataset_reader q_scale
-dataset_reader getsid
-dataset_reader _exit
-dataset_reader cudnn_convolution
-dataset_reader autocast_mode
-dataset_reader fromkeys
-dataset_reader is_storage
-dataset_reader block_diag
-dataset_reader init_process_group
-dataset_reader native_dropout
-dataset_reader get_exec_path
-dataset_reader _validate_sparse_csr_tensor_args
-dataset_reader defpath
-dataset_reader bmm
-dataset_reader _foreach_zero_
-dataset_reader _foreach_norm
-dataset_reader cpu_count
-dataset_reader conj_physical_
-dataset_reader dsplit
-dataset_reader mkfifo
-dataset_reader moveaxis
-dataset_reader onnx
-dataset_reader nanmean
-dataset_reader _foreach_log10
-dataset_reader _make_per_tensor_quantized_tensor
-dataset_reader rrelu_
-dataset_reader ormqr
-dataset_reader nan_to_num_
-dataset_reader dequantize
-dataset_reader isneginf
-dataset_reader _sharing_strategy
-dataset_reader _copy_items
-dataset_reader debug
-dataset_reader _empty_affine_quantized
-dataset_reader transpose
-dataset_reader align_tensors
-dataset_reader sigmoid_
-dataset_reader _adaptive_avg_pool3d
-dataset_reader addcdiv
-dataset_reader per_tensor_affine
-dataset_reader _dim_arange
-dataset_reader _foreach_log1p_
-dataset_reader center
-dataset_reader hasattr
-dataset_reader raiseExceptions
-dataset_reader execfile
-dataset_reader reciprocal_
-dataset_reader extsep
-dataset_reader rad2deg
-dataset_reader _foreach_sin
-dataset_reader _cast_Float
-dataset_reader _stack
-dataset_reader lstat
-dataset_reader urandom
-dataset_reader classes
-dataset_reader float16
-dataset_reader per_tensor_symmetric
-dataset_reader per_channel_symmetric
-dataset_reader classproperty
-dataset_reader histogram
-dataset_reader _foreach_erf
-dataset_reader to_dlpack
-dataset_reader _sample_dirichlet
-dataset_reader truncate
-dataset_reader fused_moving_avg_obs_fake_quant
-dataset_reader cmp
-dataset_reader has_mlc
-dataset_reader _foreach_addcdiv_
-dataset_reader quantize_per_channel
-dataset_reader link
-dataset_reader set_default_dtype
-dataset_reader broadcast_tensors
-dataset_reader addmv_
-dataset_reader selu
-dataset_reader inner
-dataset_reader _after_at_fork_child_reinit_locks
-dataset_reader _weight_norm
-dataset_reader lockf
-dataset_reader clone
-dataset_reader replace
-dataset_reader fliplr
-dataset_reader atan2
-dataset_reader _abc_impl
-dataset_reader vander
-dataset_reader getgrouplist
-dataset_reader seekable
-dataset_reader index_add
-dataset_reader rnn_relu_cell
-dataset_reader mkldnn_max_pool3d
-dataset_reader numel
-dataset_reader _startTime
-dataset_reader inf
-dataset_reader intersection
-dataset_reader _to_cpu
-dataset_reader set_vital
-dataset_reader _fwalk
-dataset_reader zeros
-dataset_reader symmetric_difference_update
-dataset_reader putenv
-dataset_reader greater
-dataset_reader platform
-dataset_reader allclose
-dataset_reader int_repr
-dataset_reader unsetenv
-dataset_reader get_padding_lengths
-dataset_reader _foreach_lgamma
-dataset_reader seed
-dataset_reader adjoint
-dataset_reader pathsep
-dataset_reader check_builtin
-dataset_reader nextafter
-dataset_reader fsdecode
-dataset_reader index_fill
-dataset_reader reduce
-dataset_reader _foreach_maximum
-dataset_reader write
-dataset_reader _linalg_utils
-dataset_reader _conj_physical
-dataset_reader arctan2
-dataset_reader _foreach_frac
-dataset_reader _masked_softmax
-dataset_reader _ExtendAction
-dataset_reader slice_scatter
-dataset_reader take
-dataset_reader all_reduce_multigpu
-dataset_reader channels_last_3d
-dataset_reader qint32
-dataset_reader setregid
-dataset_reader _create_process_group_wrapper
-dataset_reader take_along_dim
-dataset_reader resize_as_sparse_
-dataset_reader threshold_
-dataset_reader attr
-dataset_reader batch_norm_backward_elemt
-dataset_reader neg
-dataset_reader _re
-dataset_reader _masked
-dataset_reader help
-dataset_reader _foreach_log
-dataset_reader maximum
-dataset_reader nan
-dataset_reader viewvalues
-dataset_reader view_as_complex
-dataset_reader trace
-dataset_reader warning
-dataset_reader _compute_linear_combination
-dataset_reader miopen_convolution_transpose
-dataset_reader setresgid
-dataset_reader batch_norm_stats
-dataset_reader _acquireLock
-dataset_reader device_encoding
-dataset_reader path
-dataset_reader complex128
-dataset_reader einsum
-dataset_reader per_channel_affine
-dataset_reader msort
-dataset_reader spmm
-dataset_reader igammac
-dataset_reader cudnn_is_acceptable
-dataset_reader st
-dataset_reader trunc_
-dataset_reader chmod
-dataset_reader fbgemm_linear_fp16_weight
-dataset_reader alpha_dropout
-dataset_reader index_copy
-dataset_reader _convolution
-dataset_reader _vmap_internals
-dataset_reader exp
-dataset_reader native_channel_shuffle
-dataset_reader getlogin
-dataset_reader _torch_cuda_cu_linker_symbol_op
-dataset_reader _AttributeHolder
-dataset_reader getenv
-dataset_reader waitid_result
-dataset_reader rsplit
-dataset_reader lgamma
-dataset_reader getpid
-dataset_reader unify_type_list
-dataset_reader _has_compatible_shallow_copy_type
-dataset_reader q_per_channel_axis
-dataset_reader binary_cross_entropy_with_logits
-dataset_reader _foreach_exp
-dataset_reader setLoggerClass
-dataset_reader spawnle
-dataset_reader cosine_embedding_loss
-dataset_reader spawnvpe
-dataset_reader readv
-dataset_reader broadcast
-dataset_reader cuda
-dataset_reader return_types
-dataset_reader true_divide
-dataset_reader mkldnn_adaptive_avg_pool2d
-dataset_reader conv_tbc
-dataset_reader lchown
-dataset_reader max
-dataset_reader utime
-dataset_reader allow_connection_pickling
-dataset_reader _verify_params_across_processes
-dataset_reader getxattr
-dataset_reader is_torchelastic_launched
-dataset_reader bool
-dataset_reader hardshrink
-dataset_reader asarray
-dataset_reader pipe
-dataset_reader put
-dataset_reader title
-dataset_reader execve
-dataset_reader full_like
-dataset_reader cummax
-dataset_reader linesep
-dataset_reader register_at_fork
-dataset_reader device
-dataset_reader chr
-dataset_reader _all_gather_base
-dataset_reader arcsinh
-dataset_reader empty_like
-dataset_reader quit
-dataset_reader cfloat
-dataset_reader neg_
-dataset_reader int8
-dataset_reader _linalg_qr_helper
-dataset_reader _foreach_tanh_
-dataset_reader fdatasync
-dataset_reader json_to_labeled_instances
-dataset_reader asinh
-dataset_reader set_printoptions
-dataset_reader _defaultFormatter
-dataset_reader backends
-dataset_reader _sobol_engine_initialize_state_
-dataset_reader movedim
-dataset_reader as_strided_
-dataset_reader getLogger
-dataset_reader environ
-dataset_reader delattr
-dataset_reader dstack
-dataset_reader quantized_rnn_relu_cell
-dataset_reader get_num_interop_threads
-dataset_reader ceil_
-dataset_reader _foreach_tan_
-dataset_reader not_equal
-dataset_reader _defaultLastResort
-dataset_reader logical_or
-dataset_reader listdir
-dataset_reader isatty
-dataset_reader get_autocast_gpu_dtype
-dataset_reader q_per_channel_zero_points
-dataset_reader add_
-dataset_reader _test_serialization_subcmul
-dataset_reader set_rng_state
-dataset_reader popen
-dataset_reader curdir
-dataset_reader initgroups
-dataset_reader futures
-dataset_reader swapaxes
-dataset_reader geqrf
-dataset_reader clamp_max_
-dataset_reader gru
-dataset_reader lcm
-dataset_reader _levelToName
-dataset_reader logaddexp
-dataset_reader _ActionsContainer
-dataset_reader atan
-dataset_reader frac_
-dataset_reader geteuid
-dataset_reader closerange
-dataset_reader nuclear_norm
-dataset_reader batch_isend_irecv
-dataset_reader finfo
-dataset_reader intersection_update
-dataset_reader fmin
-dataset_reader package
-dataset_reader builtins
-dataset_reader qr
-dataset_reader readable
-dataset_reader lt
-dataset_reader _sobol_engine_ff_
-dataset_reader tobytes
-dataset_reader sspaddmm
-dataset_reader hstack
-dataset_reader rand_like
-dataset_reader spawnve
-dataset_reader swapdims
-dataset_reader is_deterministic_algorithms_warn_only_enabled
-dataset_reader license
-dataset_reader hsplit
-dataset_reader _foreach_log10_
-dataset_reader get_all_sharing_strategies
-dataset_reader sparse
-dataset_reader upper
-dataset_reader _foreach_erfc
-dataset_reader atleast_1d
-dataset_reader concat
-dataset_reader quasirandom
-dataset_reader istitle
-dataset_reader manual_seed
-dataset_reader sched_get_priority_max
-dataset_reader _make_dual
-dataset_reader clamp_max
-dataset_reader logProcesses
-dataset_reader _utils_internal
-dataset_reader _copy_from_and_resize
-dataset_reader hann_window
-dataset_reader execvp
-dataset_reader narrow_copy
-dataset_reader types
-dataset_reader fwalk
-dataset_reader fake_quantize_per_channel_affine
-dataset_reader sigmoid
-dataset_reader grid_sampler
-dataset_reader nonzero
-dataset_reader is_autocast_cpu_enabled
-dataset_reader var
-dataset_reader fpathconf
-dataset_reader has_key
-dataset_reader denominator-getter
-dataset_reader legacy_contiguous_format
-dataset_reader _foreach_round
-dataset_reader cos
-dataset_reader grid_sampler_2d
-dataset_reader erf
-dataset_reader extend
-dataset_reader string_classes
-dataset_reader bitwise_xor
-dataset_reader split
-dataset_reader listxattr
-dataset_reader _register_at_fork_reinit_lock
-dataset_reader uname
-dataset_reader empty
-dataset_reader logMultiprocessing
-dataset_reader sin_
-dataset_reader _add_relu_
-dataset_reader rot90
-dataset_reader iinfo
-dataset_reader pwrite
-dataset_reader exec_builtin
-dataset_reader strip
-dataset_reader send
-dataset_reader logdet
-dataset_reader getppid
-dataset_reader _import_dotted_name
-dataset_reader _linalg_inv_out_helper_
-dataset_reader fdel
-dataset_reader isidentifier
-dataset_reader memory_format
-dataset_reader hash
-dataset_reader aminmax
-dataset_reader _fused_dropout
-dataset_reader sinc
-dataset_reader real
-dataset_reader _sparse_broadcast_to
-dataset_reader narrow
-dataset_reader minimum
-dataset_reader getcwd
-dataset_reader logger
-dataset_reader sign
-dataset_reader getgroups
-dataset_reader is_gloo_available
-dataset_reader ger
-dataset_reader _cast_Short
-dataset_reader exec
-dataset_reader setuid
-dataset_reader oct
-dataset_reader viewkeys
-dataset_reader as_integer_ratio
-dataset_reader _foreach_log2
-dataset_reader max_pool2d
-dataset_reader set_deterministic_debug_mode
-dataset_reader textwrap
-dataset_reader scatter
-dataset_reader dtype
-dataset_reader max_pool1d
-dataset_reader _shape_as_tensor
-dataset_reader clamp_
-dataset_reader isnumeric
-dataset_reader set_executable
-dataset_reader _foreach_cosh_
-dataset_reader spawnvp
-dataset_reader reversed
-dataset_reader getresgid
-dataset_reader sysconf
-dataset_reader is_tensor
-dataset_reader quantized_max_pool2d
-dataset_reader save
-dataset_reader triplet_margin_loss
-dataset_reader sched_getparam
-dataset_reader getLogRecordFactory
-dataset_reader std_mean
-dataset_reader _check_methods
-dataset_reader irecv
-dataset_reader cudnn_convolution_relu
-dataset_reader sgn
-dataset_reader conv3d
-dataset_reader abort
-dataset_reader readline
-dataset_reader matrix_exp
-dataset_reader divmod
-dataset_reader greater_equal
-dataset_reader _unique2
-dataset_reader getcwdb
-dataset_reader execle
-dataset_reader casefold
-dataset_reader get_logger
-dataset_reader empty_quantized
-dataset_reader bitwise_right_shift
-dataset_reader _remote_device
-dataset_reader ngettext
-dataset_reader _exists
-dataset_reader init_num_threads
-dataset_reader all_gather
-dataset_reader execvpe
-dataset_reader arcsinh_
-dataset_reader quantized_batch_norm
-dataset_reader _conj
-dataset_reader get_file_path
-dataset_reader linalg
-dataset_reader dir
-dataset_reader quantile
-dataset_reader duplicate
-dataset_reader margin_ranking_loss
-dataset_reader contextlib
-dataset_reader basicConfig
-dataset_reader zip
-dataset_reader _rowwise_prune
-dataset_reader waitid
-dataset_reader amin
-dataset_reader lu_solve
-dataset_reader from_file
-dataset_reader _unpack_dual
-dataset_reader dist_backend
-dataset_reader _foreach_addcdiv
-dataset_reader can_cast
-dataset_reader _foreach_addcmul_
-dataset_reader breakpoint
-dataset_reader _foreach_cos_
-dataset_reader q_zero_point
-dataset_reader issuperset
-dataset_reader ceil
-dataset_reader splitlines
-dataset_reader arccos_
-dataset_reader typename
-dataset_reader div
-dataset_reader tolist
-dataset_reader unique_consecutive
-dataset_reader encode
-dataset_reader supports_dir_fd
-dataset_reader _cufft_clear_plan_cache
-dataset_reader no_grad
-dataset_reader feature_alpha_dropout
-dataset_reader randn_like
-dataset_reader _sources
-dataset_reader _assert_async
-dataset_reader _foreach_round_
-dataset_reader pdist
-dataset_reader _mkldnn_transpose_
-dataset_reader resolve_neg
-dataset_reader tril_indices
-dataset_reader inference_mode
-dataset_reader _get_debug_mode
-dataset_reader _fft_c2c
-dataset_reader _foreach_tan
-dataset_reader cov
-dataset_reader _is_functional_tensor
-dataset_reader qint8
-dataset_reader mv
-dataset_reader from_bytes
-dataset_reader wait3
-dataset_reader broadcast_to
-dataset_reader sysconf_names
-dataset_reader forkpty
-dataset_reader killpg
-dataset_reader _linalg_check_errors
-dataset_reader _inst
-dataset_reader intern
-dataset_reader _AppendAction
-dataset_reader isinf
-dataset_reader miopen_depthwise_convolution
-dataset_reader seteuid
-dataset_reader setegid
-dataset_reader erf_
-dataset_reader conv_transpose3d
-dataset_reader quantized_gru_cell
-dataset_reader _get_action_name
-dataset_reader set_flush_denormal
-dataset_reader all_gather_multigpu
-dataset_reader relu
-dataset_reader union
-dataset_reader rpc
-dataset_reader _prctl_pr_set_pdeathsig
-dataset_reader isnan
-dataset_reader square
-dataset_reader _weight_norm_cuda_interface
-dataset_reader _foreach_trunc
-dataset_reader is_anomaly_enabled
-dataset_reader statvfs
-dataset_reader _fft_r2c
-dataset_reader median
-dataset_reader pixel_shuffle
-dataset_reader has_cuda
-dataset_reader channel_shuffle
-dataset_reader parent_process
-dataset_reader rmdir
-dataset_reader ctc_loss
-dataset_reader outer
-dataset_reader id
-dataset_reader cholesky_inverse
-dataset_reader _sparse_softmax_backward_data
-dataset_reader max_pool3d
-dataset_reader as_strided
-dataset_reader mode
-dataset_reader cholesky
-dataset_reader bilinear
-dataset_reader getenvb
-dataset_reader logical_and
-dataset_reader triangular_solve
-dataset_reader _foreach_expm1
-dataset_reader uint8
-dataset_reader cudnn_convolution_transpose
-dataset_reader numerator-getter
-dataset_reader _foreach_minimum
-dataset_reader _foreach_asin_
-dataset_reader rad2deg_
-dataset_reader destroy_process_group
-dataset_reader flipud
-dataset_reader xlogy_
-dataset_reader _sobol_engine_scramble_
-dataset_reader get_inheritable
-dataset_reader rnn_relu
-dataset_reader _wrap_close
-dataset_reader layer_norm
-dataset_reader _logRecordFactory
-dataset_reader readlink
-dataset_reader mkdir
-dataset_reader is_warn_always_enabled
-dataset_reader rendezvous
-dataset_reader bitwise_not
-dataset_reader diff
-dataset_reader _foreach_ceil_
-dataset_reader prod
-dataset_reader fsencode
-dataset_reader floor_divide
-dataset_reader lstrip
-dataset_reader unlink
-dataset_reader setxattr
-dataset_reader _releaseLock
-dataset_reader asin
-dataset_reader fatal
-dataset_reader fileno
-dataset_reader autograd
-dataset_reader setgid
-dataset_reader logThreads
-dataset_reader _MutuallyExclusiveGroup
-dataset_reader reduce_multigpu
-dataset_reader freeze_support
-dataset_reader fstatvfs
-dataset_reader ones_like
-dataset_reader _nameToLevel
-dataset_reader getpgrp
-dataset_reader tensor_split
-dataset_reader fsync
-dataset_reader isclose
-dataset_reader hub
-dataset_reader _amp_foreach_non_finite_check_and_unscale_
-dataset_reader isspace
-dataset_reader embedding_renorm_
-dataset_reader _sparse_mask_helper
-dataset_reader conjugate
-dataset_reader set_blocking
-dataset_reader fft
-dataset_reader flatten
-dataset_reader dist
-dataset_reader stack
-dataset_reader _StoreFalseAction
-dataset_reader ftruncate
-dataset_reader tan
-dataset_reader layout
-dataset_reader serialization
-dataset_reader zfill
-dataset_reader cudnn_convolution_add_relu
-dataset_reader _Environ
-dataset_reader from_dlpack
-dataset_reader reducer
-dataset_reader logit_
-dataset_reader writelines
-dataset_reader _cast_Double
-dataset_reader cudnn_batch_norm
-dataset_reader group
-dataset_reader diagonal
-dataset_reader exp2_
-dataset_reader new_subgroups
-dataset_reader masked_select
-dataset_reader index_select
-dataset_reader count_vocab_items
-dataset_reader fstat
-dataset_reader count_nonzero
-dataset_reader angle
-dataset_reader set_warn_always
-dataset_reader ones
-dataset_reader fix
-dataset_reader _foreach_add
-dataset_reader _foreach_asin
-dataset_reader find_embedding_layer
-dataset_reader setgroups
-dataset_reader logsumexp
-dataset_reader bartlett_window
-dataset_reader special
-dataset_reader read
-dataset_reader set_inheritable
-dataset_reader rnn_tanh
-dataset_reader all_gather_coalesced
-dataset_reader _pack_padded_sequence
-dataset_reader sched_setparam
-dataset_reader squeeze
-dataset_reader get_sharing_strategy
-dataset_reader getattr
-dataset_reader set_sharing_strategy
-dataset_reader _standard_gamma
-dataset_reader argsort
-dataset_reader all_reduce_coalesced
-dataset_reader _rank_not_in_group
-dataset_reader is_autocast_cache_enabled
-dataset_reader version
-dataset_reader filter
-dataset_reader isbuiltin
-dataset_reader _to_functional_tensor
-dataset_reader capitalize
-dataset_reader get_start_method
-dataset_reader get_backend
-dataset_reader is_vulkan_available
-dataset_reader use_deterministic_algorithms
-dataset_reader deg2rad_
-dataset_reader _copy_from
-dataset_reader endswith
-dataset_reader set_num_threads
-dataset_reader _fake_quantize_per_tensor_affine_cachemask_tensor_qparams
-dataset_reader smm
-dataset_reader cartesian_prod
-dataset_reader signbit
-dataset_reader captureWarnings
-dataset_reader cosh_
-dataset_reader is_initialized
-dataset_reader _doc
-dataset_reader pinverse
-dataset_reader add_subparsers
-dataset_reader logical_not
-dataset_reader is_signed
-dataset_reader bucketize
-dataset_reader clip
-dataset_reader ops
-dataset_reader _cat
-dataset_reader clear_autocast_cache
-dataset_reader conv_transpose1d
-dataset_reader indices
-dataset_reader insert
-dataset_reader _standard_gamma_grad
-dataset_reader _debug_has_internal_overlap
-dataset_reader lerp
-dataset_reader _all_sharing_strategies
-dataset_reader arctanh_
-dataset_reader scalar_tensor
-dataset_reader min
-dataset_reader batch_norm_elemt
-dataset_reader cumulative_trapezoid
-dataset_reader norm_except_dim
-dataset_reader atanh_
-dataset_reader miopen_convolution
-dataset_reader isascii
-dataset_reader complex64
-dataset_reader _reshape_from_tensor
-dataset_reader int32
-dataset_reader supports_fd
-dataset_reader system
-dataset_reader float_power
-dataset_reader multinomial
-dataset_reader _scatter_reduce
-dataset_reader islower
-dataset_reader coerce
-dataset_reader create_builtin
-dataset_reader std
-dataset_reader isupper
-dataset_reader statvfs_result
-dataset_reader is_builtin
-dataset_reader terminal_size
-dataset_reader chroot
-dataset_reader tile
-dataset_reader _foreach_sub_
-dataset_reader _cast_Int
-dataset_reader _embedding_bag
-dataset_reader get_device
-dataset_reader unichr
-dataset_reader dup
-dataset_reader overrides
-dataset_reader is_same_size
-dataset_reader default_generator
-dataset_reader frexp
-dataset_reader _foreach_mul
-dataset_reader sin
-dataset_reader _execvpe
-dataset_reader sparse_csr_tensor
-dataset_reader var_mean
-dataset_reader acosh
-dataset_reader get_world_size
-dataset_reader ord
-dataset_reader setresuid
-dataset_reader _warnings_showwarning
-dataset_reader is_integer
-dataset_reader _fspath
-dataset_reader _efficientzerotensor
-dataset_reader is_nonzero
-dataset_reader eq
-dataset_reader exception
-dataset_reader resize_as_
-dataset_reader empty_strided
-dataset_reader _foreach_sinh
-dataset_reader posix_spawnp
-dataset_reader chown
-dataset_reader trapz
-dataset_reader _foreach_sinh_
-dataset_reader logspace
-dataset_reader enable_grad
-dataset_reader randn
-dataset_reader parse_ir
-dataset_reader qscheme
-dataset_reader clamp_min
-dataset_reader column_stack
-dataset_reader bitwise_left_shift
-dataset_reader acos_
-dataset_reader issubset
-dataset_reader cpu
-dataset_reader erfinv
-dataset_reader fbgemm_linear_int8_weight
-dataset_reader nan_to_num
-dataset_reader tcgetpgrp
-dataset_reader get_num_threads
-dataset_reader wait4
-dataset_reader isdisjoint
-dataset_reader affine_grid_generator
-dataset_reader _TypedStorage
-dataset_reader arctan_
-dataset_reader _foreach_frac_
-dataset_reader _foreach_cos
-dataset_reader distributed
-dataset_reader rrelu
-dataset_reader reciprocal
-dataset_reader atan_
-dataset_reader has_spectral
-dataset_reader mul_
-dataset_reader is_distributed
-dataset_reader cummin
-dataset_reader rindex
-dataset_reader alpha_dropout_
-dataset_reader _foreach_expm1_
-dataset_reader dsmm
-dataset_reader set_autocast_enabled
-dataset_reader setdefault
-dataset_reader _jit_internal
-dataset_reader where
-dataset_reader convolution
-dataset_reader prepare_multiprocessing_environment
-dataset_reader _foreach_exp_
-dataset_reader _foreach_neg
-dataset_reader square_
-dataset_reader ctypes
-dataset_reader removexattr
-dataset_reader _lock
-dataset_reader is_complex
-dataset_reader clamp
-dataset_reader matrix_rank
-dataset_reader globals
-dataset_reader vitals_enabled
-dataset_reader arccosh_
-dataset_reader _StoreConstAction
-dataset_reader _showwarning
-dataset_reader _adaptive_avg_pool2d
-dataset_reader _enable_functionalization
-dataset_reader matrix_power
-dataset_reader istft
-dataset_reader _name
-dataset_reader _foreach_sigmoid_
-dataset_reader conv2d
-dataset_reader input
-dataset_reader det
-dataset_reader _handlerList
-dataset_reader _foreach_trunc_
-dataset_reader corrcoef
-dataset_reader int64
-dataset_reader partition
-dataset_reader unbind
-dataset_reader nn
-dataset_reader copy_with
-dataset_reader batch_norm_backward_reduce
-dataset_reader _log_softmax
-dataset_reader searchsorted
-dataset_reader import_ir_module_from_buffer
-dataset_reader unsafe_split_with_sizes
-dataset_reader itervalues
-dataset_reader _foreach_div_
-dataset_reader jit
-dataset_reader getpgid
-dataset_reader _at_fork_reinit_lock_weakset
-dataset_reader log_to_stderr
-dataset_reader gather
-dataset_reader _broadcast_coalesced
-dataset_reader bitwise_or
-dataset_reader t
-dataset_reader tell
-dataset_reader collections
-dataset_reader _sparse_sum
-dataset_reader all_to_all
-dataset_reader _foreach_sigmoid
-dataset_reader copy
-dataset_reader warn
-dataset_reader _checkLevel
-dataset_reader result_type
-dataset_reader feature_dropout_
-dataset_reader sched_setscheduler
-dataset_reader setLogRecordFactory
-dataset_reader log2
-dataset_reader pairwise_distance
-dataset_reader translate
-dataset_reader all_to_all_single
-dataset_reader logaddexp2
-dataset_reader frobenius_norm
-dataset_reader _foreach_erfc_
-dataset_reader _unsetenv
-dataset_reader quantized_lstm
-dataset_reader rnn_tanh_cell
-dataset_reader floor_
-dataset_reader split_with_sizes
-dataset_reader posix_fallocate
-dataset_reader print
-dataset_reader discard
-dataset_reader _softmax_backward_data
-dataset_reader utils
-dataset_reader _initExtension
-dataset_reader _mkldnn_transpose
-dataset_reader _unique
-dataset_reader digamma
-dataset_reader zeros_like
-dataset_reader ttyname
-dataset_reader sparse_coo
-dataset_reader quantize_per_tensor
-dataset_reader _foreach_log_
-dataset_reader train
-dataset_reader xlogy
-dataset_reader mro
-dataset_reader randint_like
-dataset_reader avg_pool1d
-dataset_reader makedev
-dataset_reader _foreach_erf_
-dataset_reader _nnpack_available
+signature parameters drive p
+signature parameters getfullargspec p
+signature parameters getsource p
+signature parameters pop_int p
+signature parameters isawaitable p
+signature parameters keys p
+signature parameters setattr p
+signature parameters hash p
+signature parameters _findclass p
+signature parameters _parse_args p
+signature parameters lower p
+signature parameters _drv p
+signature parameters chr p
+signature parameters seek p
+signature parameters dis p
+signature parameters reload p
+signature parameters stem p
+signature parameters abs p
+signature parameters ismethoddescriptor p
+signature parameters sort p
+signature parameters truncate p
+signature parameters _showwarning p
+signature parameters is_socket p
+signature parameters importlib p
+signature parameters _signature_get_bound_param p
+signature parameters read_bytes p
+signature parameters _format_parsed_parts p
+signature parameters _abc_impl p
+signature parameters isdigit p
+signature parameters getframeinfo p
+signature parameters viewvalues p
+signature parameters exec_builtin p
+signature parameters flush p
+signature parameters strip p
+signature parameters getmodule p
+signature parameters _signature_get_user_defined_method p
+signature parameters callable p
+signature parameters addLevelName p
+signature parameters zfill p
+signature parameters debug p
+signature parameters islower p
+signature parameters check_builtin p
+signature parameters insert p
+signature parameters getLogger p
+signature parameters _sentinel p
+signature parameters readable p
+signature parameters _MethodWrapper p
+signature parameters reverse p
+signature parameters iscode p
+signature parameters ord p
+signature parameters isidentifier p
+signature parameters _at_fork_reinit_lock_weakset p
+signature parameters lstrip p
+signature parameters sum p
+signature parameters help p
+signature parameters setLoggerClass p
+signature parameters symmetric_difference_update p
+signature parameters warnings p
+signature parameters maketrans p
+signature parameters iterdir p
+signature parameters rstrip p
+signature parameters collections p
+signature parameters _make_child p
+signature parameters rpartition p
+signature parameters _raw_open p
+signature parameters warning p
+signature parameters imag-getter p
+signature parameters time p
+signature parameters _filesbymodname p
+signature parameters critical p
+signature parameters tell p
+signature parameters swapcase p
+signature parameters _root p
+signature parameters builtins p
+signature parameters _signature_is_builtin p
+signature parameters functools p
+signature parameters getattr_static p
+signature parameters items p
+signature parameters getLevelName p
+signature parameters os p
+signature parameters fatal p
+signature parameters conjugate p
+signature parameters info p
+signature parameters casefold p
+signature parameters open p
+signature parameters bit_length p
+signature parameters fdel p
+signature parameters formatargspec p
+signature parameters max p
+signature parameters v p
+signature parameters io p
+signature parameters _finddoc p
+signature parameters read p
+signature parameters min p
+signature parameters _startTime p
+signature parameters init_builtin p
+signature parameters getsourcefile p
+signature parameters raw_input p
+signature parameters intersection p
+signature parameters as_dict p
+signature parameters union p
+signature parameters breakpoint p
+signature parameters name p
+signature parameters ismodule p
+signature parameters args p
+signature parameters getattr p
+signature parameters splitlines p
+signature parameters _is_type p
+signature parameters tolist p
+signature parameters sorted p
+signature parameters is_reserved p
+signature parameters _defaultLastResort p
+signature parameters all p
+signature parameters istitle p
+signature parameters makeLogRecord p
+signature parameters group p
+signature parameters symlink_to p
+signature parameters isgenerator p
+signature parameters stack p
+signature parameters traceback p
+signature parameters as_posix p
+signature parameters _signature_fromstr p
+signature parameters _signature_from_function p
+signature parameters vars p
+signature parameters _hash p
+signature parameters getinnerframes p
+signature parameters getsourcelines p
+signature parameters eval p
+signature parameters atexit p
+signature parameters extend p
+signature parameters itervalues p
+signature parameters is_fifo p
+signature parameters _str_formatter p
+signature parameters parent p
+signature parameters symmetric_difference p
+signature parameters _check_instance p
+signature parameters getlineno p
+signature parameters as_flat_dict p
+signature parameters anchor p
+signature parameters numerator-getter p
+signature parameters round p
+signature parameters token p
+signature parameters setter p
+signature parameters is_char_device p
+signature parameters walktree p
+signature parameters weakref p
+signature parameters to_file p
+signature parameters input p
+signature parameters getgeneratorstate p
+signature parameters update p
+signature parameters pop_bool p
+signature parameters isatty p
+signature parameters tokenize p
+signature parameters getcoroutinestate p
+signature parameters _signature_bound_method p
+signature parameters mkdir p
+signature parameters isabstract p
+signature parameters sys p
+signature parameters rglob p
+signature parameters locals p
+signature parameters divmod p
+signature parameters iscoroutinefunction p
+signature parameters getLogRecordFactory p
+signature parameters execfile p
+signature parameters _srcfile p
+signature parameters formatannotationrelativeto p
+signature parameters getclosurevars p
+signature parameters basicConfig p
+signature parameters denominator-getter p
+signature parameters upper p
+signature parameters count p
+signature parameters _signature_from_builtin p
+signature parameters readlines p
+signature parameters glob p
+signature parameters add p
+signature parameters create_builtin p
+signature parameters isinstance p
+signature parameters formatargvalues p
+signature parameters apply p
+signature parameters _addHandlerRef p
+signature parameters fset p
+signature parameters _levelToName p
+signature parameters mod_dict p
+signature parameters getter p
+signature parameters root p
+signature parameters exit p
+signature parameters write p
+signature parameters format p
+signature parameters getclasstree p
+signature parameters setdefault p
+signature parameters _void p
+signature parameters _from_parsed_parts p
+signature parameters intersection_update p
+signature parameters trace p
+signature parameters _checkLevel p
+signature parameters quit p
+signature parameters issubset p
+signature parameters logProcesses p
+signature parameters as_uri p
+signature parameters indices p
+signature parameters abc p
+signature parameters map p
+signature parameters getdoc p
+signature parameters _pparts p
+signature parameters indentsize p
+signature parameters mro p
+signature parameters exception p
+signature parameters log p
+signature parameters issubclass p
+signature parameters iter p
+signature parameters formatannotation p
+signature parameters setLogRecordFactory p
+signature parameters deleter p
+signature parameters is_absolute p
+signature parameters _defaultFormatter p
+signature parameters attrgetter p
+signature parameters replace p
+signature parameters unichr p
+signature parameters isascii p
+signature parameters _missing_arguments p
+signature parameters _cparts p
+signature parameters _releaseLock p
+signature parameters iteritems p
+signature parameters _raise_closed p
+signature parameters rsplit p
+signature parameters fromhex p
+signature parameters is_dir p
+signature parameters getfile p
+signature parameters getargvalues p
+signature parameters isgeneratorfunction p
+signature parameters tobytes p
+signature parameters get_hash p
+signature parameters getmodulename p
+signature parameters _static_getmro p
+signature parameters difference p
+signature parameters values p
+signature parameters pop_choice p
+signature parameters match p
+signature parameters getcoroutinelocals p
+signature parameters modulesbyfile p
+signature parameters capitalize p
+signature parameters home p
+signature parameters _logRecordFactory p
+signature parameters absolute p
+signature parameters getargspec p
+signature parameters link_to p
+signature parameters signature p
+signature parameters isupper p
+signature parameters fget p
+signature parameters credits p
+signature parameters rfind p
+signature parameters delattr p
+signature parameters disable p
+signature parameters _MutableMapping__marker p
+signature parameters istraceback p
+signature parameters startswith p
+signature parameters compile p
+signature parameters to_bytes p
+signature parameters touch p
+signature parameters getmembers p
+signature parameters has_key p
+signature parameters _check_class p
+signature parameters isfunction p
+signature parameters isspace p
+signature parameters read_text p
+signature parameters with_traceback p
+signature parameters isdecimal p
+signature parameters bin p
+signature parameters _shadowed_dict p
+signature parameters error p
+signature parameters isasyncgenfunction p
+signature parameters unwrap p
+signature parameters getmro p
+signature parameters rindex p
+signature parameters is_builtin p
+signature parameters cleandoc p
+signature parameters split p
+signature parameters viewitems p
+signature parameters parents p
+signature parameters findsource p
+signature parameters close p
+signature parameters with_suffix p
+signature parameters _register_at_fork_reinit_lock p
+signature parameters warn p
+signature parameters isprintable p
+signature parameters shutdown p
+signature parameters center p
+signature parameters _WrapperDescriptor p
+signature parameters joinpath p
+signature parameters viewkeys p
+signature parameters relative_to p
+signature parameters _ParameterKind p
+signature parameters exists p
+signature parameters index p
+signature parameters is_integer p
+signature parameters expanduser p
+signature parameters pow p
+signature parameters cwd p
+signature parameters logThreads p
+signature parameters duplicate p
+signature parameters _signature_from_callable p
+signature parameters getargs p
+signature parameters exec p
+signature parameters repr p
+signature parameters intern p
+signature parameters getgeneratorlocals p
+signature parameters encode p
+signature parameters license p
+signature parameters _loggerClass p
+signature parameters release p
+signature parameters with_name p
+signature parameters ismethod p
+signature parameters suffixes p
+signature parameters _signature_get_partial p
+signature parameters filter p
+signature parameters endswith p
+signature parameters partition p
+signature parameters getabsfile p
+signature parameters writelines p
+signature parameters _has_code_flag p
+signature parameters k p
+signature parameters print p
+signature parameters is_block_device p
+signature parameters is_file p
+signature parameters popitem p
+signature parameters dir p
+signature parameters parts p
+signature parameters _StderrHandler p
+signature parameters from_file p
+signature parameters logMultiprocessing p
+signature parameters re p
+signature parameters resolve p
+signature parameters writable p
+signature parameters _init p
+signature parameters as_ordered_dict p
+signature parameters isasyncgen p
+signature parameters decode p
+signature parameters coerce p
+signature parameters reversed p
+signature parameters _signature_is_functionlike p
+signature parameters _acquireLock p
+signature parameters fileno p
+signature parameters _closed p
+signature parameters linecache p
+signature parameters enum p
+signature parameters raiseExceptions p
+signature parameters unlink p
+signature parameters construct p
+signature parameters constructor p
+signature parameters ascii p
+signature parameters rjust p
+signature parameters seekable p
+signature parameters from_bytes p
+signature parameters getblock p
+signature parameters pop p
+signature parameters chmod p
+signature parameters lstat p
+signature parameters _after_at_fork_child_reinit_locks p
+signature parameters currentframe p
+signature parameters title p
+signature parameters itertools p
+signature parameters rmdir p
+signature parameters _make_child_relpath p
+signature parameters _removeHandlerRef p
+signature parameters hasattr p
+signature parameters _warnings_showwarning p
+signature parameters suffix p
+signature parameters _opener p
+signature parameters namedtuple p
+signature parameters pop_float p
+signature parameters iscoroutine p
+signature parameters captureWarnings p
+signature parameters isdisjoint p
+signature parameters _ClassMethodWrapper p
+signature parameters append p
+signature parameters _is_protocol p
+signature parameters globals p
+signature parameters _lock p
+signature parameters _check_is_dict p
+signature parameters clear p
+signature parameters oct p
+signature parameters readline p
+signature parameters issuperset p
+signature parameters is_symlink p
+signature parameters len p
+signature parameters remove p
+signature parameters threading p
+signature parameters assert_empty p
+signature parameters translate p
+signature parameters lchmod p
+signature parameters getcomments p
+signature parameters _handlerList p
+signature parameters getLoggerClass p
+signature parameters stat p
+signature parameters iterkeys p
+signature parameters owner p
+signature parameters _handlers p
+signature parameters _from_parts p
+signature parameters _accessor p
+signature parameters ismemberdescriptor p
+signature parameters _signature_strip_non_python_syntax p
+signature parameters isalnum p
+signature parameters copy p
+signature parameters rename p
+signature parameters isalpha p
+signature parameters find p
+signature parameters get p
+signature parameters isclass p
+signature parameters _parts p
+signature parameters getouterframes p
+signature parameters join p
+signature parameters _NonUserDefinedCallables p
+signature parameters lastResort p
+signature parameters _empty p
+signature parameters format_map p
+signature parameters _cached_cparts p
+signature parameters reduce p
+signature parameters is_mount p
+signature parameters range p
+signature parameters cmp p
+signature parameters _main p
+signature parameters types p
+signature parameters discard p
+signature parameters id p
+signature parameters isdatadescriptor p
+signature parameters write_bytes p
+signature parameters _nameToLevel p
+signature parameters ljust p
+signature parameters isnumeric p
+signature parameters next p
+signature parameters _too_many p
+signature parameters isroutine p
+signature parameters as_integer_ratio p
+signature parameters real-getter p
+signature parameters isgetsetdescriptor p
+signature parameters any p
+signature parameters classify_class_attrs p
+signature parameters difference_update p
+signature parameters fromkeys p
+signature parameters write_text p
+signature parameters zip p
+signature parameters copyright p
+signature parameters isbuiltin p
+signature parameters _str p
+signature parameters isframe p
+signature parameters samefile p
+signature parameters hex p
+signature parameters getcallargs p
+signature parameters expandtabs p

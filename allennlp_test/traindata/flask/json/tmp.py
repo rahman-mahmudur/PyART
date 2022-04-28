@@ -26,6 +26,8 @@ class JSONEncoder(_json.JSONEncoder):
             return http_date(o.timetuple())
         if isinstance(o, uuid.UUID):
             return str(o)
+        if dataclasses and dataclasses.is_dataclass(o):
+            return dataclasses.asdict(o)
         if hasattr(o, "__html__"):
             return str(o.__html__())
         return super().default(self, o)
@@ -39,7 +41,9 @@ def _dump_arg_defaults(kwargs, app=None):
         app = current_app
 
     if app:
+        bp = app.blueprints.get(request.blueprint) if request else None
         cls = bp.json_encoder if bp and bp.json_encoder else app.json_encoder
+        kwargs.setdefault("cls", cls)
         kwargs.setdefault("ensure_ascii", app.config["JSON_AS_ASCII"])
         kwargs.setdefault("sort_keys", app.config["JSON_SORT_KEYS"])
     else:
@@ -61,6 +65,8 @@ def _load_arg_defaults(kwargs, app=None):
 
 def dumps(obj, app=None, **kwargs):
     _dump_arg_defaults(kwargs, app=app)
+    encoding = kwargs.pop("encoding", None)
+    rv = _json.dumps(obj, **kwargs)
 
     if encoding is not None:
         warnings.warn(
@@ -70,6 +76,7 @@ def dumps(obj, app=None, **kwargs):
         )
 
         if isinstance(rv, str):
+            return rv.encode(encoding)
 
     return rv
 
@@ -80,6 +87,7 @@ def dump(obj, fp, app=None, **kwargs):
     show_warning = encoding is not None
 
     try:
+        fp.write("")
     except TypeError:
         show_warning = True
         fp = io.TextIOWrapper(fp, encoding or "utf-8")
@@ -92,6 +100,7 @@ def dump(obj, fp, app=None, **kwargs):
             stacklevel=2,
         )
 
+    _json.dump(obj, fp, **kwargs)
 
 
 def loads(s, app=None, **kwargs):
@@ -109,6 +118,7 @@ def loads(s, app=None, **kwargs):
         if isinstance(s, bytes):
             s = s.decode(encoding)
 
+    return _json.loads(s, **kwargs)
 
 
 def load(fp, app=None, **kwargs):

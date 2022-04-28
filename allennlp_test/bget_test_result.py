@@ -38,6 +38,11 @@ stdlib=['string','re','difflib','textwrap','unicodedata','stringprep','readline'
 'msvcrt','winreg','winsound','posix','pwd','spwd','grp','crypt','termios','tty','pty','fcntl','pipes',
 'resource','nis','optparse','imp']
 
+topk_array = [0,0,0,0,0,0,0]
+
+num_of_apis = 0
+
+
 class ShowProcess():
     i = 0
     max_steps = 0
@@ -1309,7 +1314,20 @@ def get_rec_point(file):
 			#alltimes+=ts+'\n'
 		pinranks.append(rank)
 		precode+=line
-		get_results(pinranks)
+
+		temp_arr = get_results(pinranks)
+		topk_array[0] += temp_arr[0]
+		topk_array[1] += temp_arr[1]
+		topk_array[2] += temp_arr[2]
+		topk_array[3] += temp_arr[3]
+		topk_array[4] += temp_arr[4]
+		topk_array[5] += temp_arr[5]
+		topk_array[6] += temp_arr[6]
+
+		global num_of_apis
+		if topk_array[5] != 0: 
+			num_of_apis += 1
+
 		get_results(pranks)
 		#get_time(ptimes)	
 			
@@ -1481,3 +1499,5 @@ for ifile in ret_list:
 	dealwith(ifile)
 		#with open('/home/user/PyART/testdatak/'+CURRENT_PROJ+'_time.txt','w+') as f:
 			#f.write(str(ptimes))
+
+print("Top K Averages for Random Forest: Top 1: " + round(str(topk_array[0]), 3) + " Top 2: " + round(str(topk_array[1]), 3) + " Top 3: " + round(str(topk_array[2]), 3) + " Top 4: " + round(str(topk_array[3]), 3) + " Top 5: " + round(str(topk_array[4]), 3) + " Top 10: " + round(str(topk_array[5]), 3) + " MRR: " + round(str(topk_array[6]), 3))
