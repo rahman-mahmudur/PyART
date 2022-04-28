@@ -24,10 +24,11 @@ More information on Top K scores and MRR calculation in paper.
 ## Testing method for accross project (Failed, see details below)
 * Testing covers accross project reccomendation accuracy (test files starting with b)
 * Only using allennlp folder and changing CURRENT_PROJ variable in bget_test_result.py, bget_test_result_nb, bget_test_result_svm, and bget_test_result_regression for the sake of time saving
-* * Added files to generate machine learning models and generate test results for each type of algorithm, for example ac_generateclf.py, ac_generatesvm.py, bget_test_result.py, bget_test_result_svm.py
+* Added files to generate machine learning models and generate test results for each type of algorithm, for example ac_generateclf.py, ac_generatesvm.py, bget_test_result.py, bget_test_result_svm.py
 * Otherwaise similar process as intra project testing
 
 ## Accross project testing failed due to bug in original Pyart project when trying to generate machine learning models (needs to be fixed)
+
 Error caused when trying to generate machine learning models using ac_generateclf.py, ac_gnerateNaiveBayes.py, etc.
 
 ## Test Results:
@@ -80,7 +81,7 @@ Pyspider results:
 
 Top K Averages for Random Forest: Top 1: 0.12  Top 2: 0.12  Top 3: 0.167 Top 4: 0.167 Top 5: 0.174 Top 10: 0.291 MRR: 0.168
 
-Top K Acerages for SVM: Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
+Top K Averages for SVM: Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
 
 Top K Averages for Naive Bayes: Top 1: 0.1 Top 2: 0.1 Top 3: 0.157 Top 4: 0.251 Top 5: 0.285 Top 10: 0.511 MRR: 0.19
 
