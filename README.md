@@ -25,6 +25,21 @@ More information on Top K scores and MRR calculation in paper: https://arxiv.org
 * Otherwaise similar process as intra project testing
 
 ## Accross project testing failed due to bug in original Pyart project when trying to generate machine learning models (needs to be fixed)
+Error:
+Traceback (most recent call last):
+  File "ac_generateclf.py", line 63, in <module>
+    clf.fit(train_data,labels)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/ensemble/_forest.py", line 327, in fit
+    X, y = self._validate_data(
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/base.py", line 581, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py", line 964, in check_X_y
+    X = check_array(
+  File "/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py", line 746, in check_array
+    array = np.asarray(array, order=order, dtype=dtype)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/generic.py", line 2072, in __array__
+    return np.asarray(self._values, dtype=dtype)
+ValueError: could not convert string to float: 'f1'
 
 ## Test Results:
 
