@@ -1,4 +1,5 @@
 ## This is a fork of the PyART real time API reccomendation tool used for undergraduate research. 
+Link to original project: https://github.com/PYART0/PyART-demo
 
 ## Current modifications:
 * Added ability to search Google for information about recommended apis using Python Requests and BeautifulSoup Web Scraper.
@@ -78,7 +79,7 @@ Pyspider results:
 
 Top K Averages for Random Forest: Top 1: 0.12  Top 2: 0.12  Top 3: 0.167 Top 4: 0.167 Top 5: 0.174 Top 10: 0.291 MRR: 0.168
 
-Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
+Top K Acerages for SVM: Top 1: 0.027 Top 2: 0.077 Top 3: 0.165 Top 4: 0.267 Top 5: 0.297 Top 10: 0.453 MRR: 0.14
 
 Top K Averages for Naive Bayes: Top 1: 0.1 Top 2: 0.1 Top 3: 0.157 Top 4: 0.251 Top 5: 0.285 Top 10: 0.511 MRR: 0.19
 
@@ -88,7 +89,7 @@ Simplejson results:
 
 Top K Averages for Random Forest: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
 
-Top K Averages for Random Forest: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
+Top K Averages for SVM: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.0 Top 5: 0.0 Top 10: 0.497 MRR: 0.093
 
 Top K Averages for Naive Bayes: Top 1: 0.0 Top 2: 0.0 Top 3: 0.52 Top 4: 0.52 Top 5: 0.52 Top 10: 0.667 MRR: 0.193
 
@@ -97,7 +98,7 @@ Top K Averages for Linear Regression: Top 1: 0.0 Top 2: 0.0 Top 3: 0.0 Top 4: 0.
 
 
 ## Readme instructions for API reccomendation from original project:
-Link to original project: https://github.com/PYART0/PyART-demo
+
 ## Description
 
 PyART is a real-time API recommendation tool for Python, which includes two main functions:
