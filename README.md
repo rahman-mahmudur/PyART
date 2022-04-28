@@ -18,11 +18,13 @@ More information on Top K scores and MRR calculation in paper: https://arxiv.org
 * Added files to generate machine learning models and generate test results for each type of algorithm, for example generateclf.py, generatesvm.py, aget_test_result.py, aget_test_result_svm.py
 * K Score array for Top 1, Top 2, Top 3, Top 4, Top 5, Top 10, and MRR (more information in paper) of each reccomendation added together then divided by number of apis recommended for average Top K score and output in terminal at end of each test script
 
-## Testing method for accross project
+## Testing method for accross project (Failed, see details below)
 * Testing covers accross project reccomendation accuracy (test files starting with b)
 * Only using allennlp folder and changing CURRENT_PROJ variable in bget_test_result.py, bget_test_result_nb, bget_test_result_svm, and bget_test_result_regression for the sake of time saving
 * * Added files to generate machine learning models and generate test results for each type of algorithm, for example ac_generateclf.py, ac_generatesvm.py, bget_test_result.py, bget_test_result_svm.py
 * Otherwaise similar process as intra project testing
+
+## Accross project testing failed due to bug in original Pyart project when trying to generate machine learning models (needs to be fixed)
 
 ## Test Results:
 
